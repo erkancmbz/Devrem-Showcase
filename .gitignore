@@ -1,0 +1,10 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor artifacts
+.vscode/
+.idea/
+*.tmp
+*.log
