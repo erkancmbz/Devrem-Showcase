@@ -1,0 +1,205 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 220 220">
+  <defs>
+    <!-- Parlak Cyan - Mor Gradyan -->
+    <linearGradient id="centeredDGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8">
+        <animate attributeName="stop-color" values="#38bdf8;#818cf8;#38bdf8" dur="4s" repeatCount="indefinite" />
+      </stop>
+      <stop offset="100%" stop-color="#6366f1">
+        <animate attributeName="stop-color" values="#6366f1;#c084fc;#6366f1" dur="4s" repeatCount="indefinite" />
+      </stop>
+    </linearGradient>
+
+    <!-- Enerji Akışı Gradyanı (Yolu aydınlatan hareketli ışık) -->
+    <linearGradient id="wirePulseGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#6366f1" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <filter id="perfectGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="hyperGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur2"/>
+      <feGaussianBlur stdDeviation="2" result="blur1"/>
+      <feMerge>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <style>
+      /* Arka plan ve temel stil */
+      .bg-panel { fill: #0b0f19; transition: all 0.5s ease; }
+      
+      /* Nabız Atan Çekirdek */
+      .core-pulse {
+        transform-origin: 110px 110px;
+        animation: pulseHeart 2s infinite ease-in-out;
+      }
+      @keyframes pulseHeart {
+        0%, 100% { transform: scale(1); filter: drop-shadow(0 0 4px #38bdf8); }
+        50% { transform: scale(1.35); filter: drop-shadow(0 0 10px #6366f1); }
+      }
+
+      /* Yayılan Radar Halka Dalgaları (Ripple) */
+      .ripple-ring {
+        transform-origin: 110px 110px;
+        animation: rippleAnim 2.4s cubic-bezier(0.1, 0.8, 0.3, 1) infinite;
+        opacity: 0;
+      }
+      .ripple-ring-2 {
+        animation-delay: 1.2s;
+      }
+      @keyframes rippleAnim {
+        0% { transform: scale(0.3); opacity: 0.8; stroke-width: 3px; }
+        80% { opacity: 0.2; }
+        100% { transform: scale(2.4); opacity: 0; stroke-width: 0.5px; }
+      }
+
+      /* Giriş ve Çıkış Elektron Akışı (Photon Packets) */
+      .wire-packet-a {
+        animation: flowWireA 1.6s infinite linear;
+      }
+      .wire-packet-b {
+        animation: flowWireB 1.6s infinite linear;
+        animation-delay: 0.35s;
+      }
+      .wire-packet-y {
+        animation: flowWireY 1.6s infinite linear;
+        animation-delay: 0.8s;
+      }
+
+      @keyframes flowWireA {
+        0% { cx: 20px; opacity: 0; r: 2; }
+        20% { opacity: 1; r: 3.5; }
+        80% { opacity: 1; r: 3; }
+        100% { cx: 58px; opacity: 0; r: 1.5; }
+      }
+      @keyframes flowWireB {
+        0% { cx: 20px; opacity: 0; r: 2; }
+        20% { opacity: 1; r: 3.5; }
+        80% { opacity: 1; r: 3; }
+        100% { cx: 58px; opacity: 0; r: 1.5; }
+      }
+      @keyframes flowWireY {
+        0% { cx: 172px; opacity: 0; r: 2; }
+        20% { opacity: 1; r: 4.5; }
+        85% { opacity: 1; r: 4; }
+        100% { cx: 200px; opacity: 0; r: 2; }
+      }
+
+      /* D Gövdesi Hat Işık Dolanımı */
+      .gate-perimeter {
+        stroke-dasharray: 22 280;
+        stroke-dashoffset: 0;
+        animation: tracePerimeter 3.6s linear infinite;
+      }
+      @keyframes tracePerimeter {
+        from { stroke-dashoffset: 302; }
+        to { stroke-dashoffset: 0; }
+      }
+
+      /* İç Çekirdek D Çerçevesi Parıltısı */
+      .inner-d-trace {
+        stroke-dasharray: 12 140;
+        animation: traceInnerD 2.8s linear infinite reverse;
+      }
+      @keyframes traceInnerD {
+        from { stroke-dashoffset: 152; }
+        to { stroke-dashoffset: 0; }
+      }
+
+      /* Y Çıkış Terminali Flaş */
+      .y-terminal-beacon {
+        animation: beaconFlash 1.6s ease-in-out infinite;
+      }
+      @keyframes beaconFlash {
+        0%, 65% { opacity: 0.6; transform: scale(1); filter: drop-shadow(0 0 3px #38bdf8); }
+        85% { opacity: 1; transform: scale(1.4); filter: drop-shadow(0 0 12px #38bdf8); }
+        100% { opacity: 0.6; transform: scale(1); }
+      }
+    </style>
+  </defs>
+
+  <!-- Koyu Şık Arka Plan -->
+  <rect class="bg-panel" width="220" height="220" rx="44"/>
+
+  <!-- ==================== RADAR RIPPLE DALGALARI ==================== -->
+  <circle class="ripple-ring" cx="110" cy="110" r="28" fill="none" stroke="#38bdf8" stroke-opacity="0.4"/>
+  <circle class="ripple-ring ripple-ring-2" cx="110" cy="110" r="28" fill="none" stroke="#818cf8" stroke-opacity="0.3"/>
+
+  <!-- ==================== GİRDİ / ÇIKTI HATTLARI ==================== -->
+  <!-- A Girdisi Temel Hattı -->
+  <line x1="20" y1="80" x2="58" y2="80" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-opacity="0.85"/>
+  <circle cx="20" cy="80" r="5" fill="#38bdf8"/>
+  <!-- A Hattı Akan Enerji Paketi -->
+  <circle class="wire-packet-a" cx="20" cy="80" r="3" fill="#ffffff" filter="url(#perfectGlow)"/>
+
+  <!-- B Girdisi Temel Hattı -->
+  <line x1="20" y1="140" x2="58" y2="140" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-opacity="0.85"/>
+  <circle cx="20" cy="140" r="5" fill="#38bdf8"/>
+  <!-- B Hattı Akan Enerji Paketi -->
+  <circle class="wire-packet-b" cx="20" cy="140" r="3" fill="#ffffff" filter="url(#perfectGlow)"/>
+
+  <!-- Y Çıktısı Temel Hattı -->
+  <line x1="172" y1="110" x2="200" y2="110" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-opacity="0.85"/>
+  <!-- Y Hattı Akan Enerji Paketi -->
+  <circle class="wire-packet-y" cx="172" cy="110" r="3.5" fill="#ffffff" filter="url(#hyperGlow)"/>
+  <!-- Y Terminali -->
+  <circle class="y-terminal-beacon" cx="200" cy="110" r="6" fill="#38bdf8" filter="url(#hyperGlow)"/>
+
+  <!-- ==================== ANA BÜYÜK D HARFİ GÖVDESİ ==================== -->
+  <!-- Statik Gövde -->
+  <path d="M 58 46 L 118 46 A 64 64 0 0 1 118 174 L 58 174 Z" 
+        fill="#131b2e" 
+        stroke="url(#centeredDGrad)" 
+        stroke-width="7" 
+        stroke-linejoin="round"
+        filter="url(#perfectGlow)"/>
+
+  <!-- Gövde Üzerinde Dolaşan Işık İzi (Circulating Neon Tracer) -->
+  <path class="gate-perimeter" 
+        d="M 58 46 L 118 46 A 64 64 0 0 1 118 174 L 58 174 Z" 
+        fill="none" 
+        stroke="#ffffff" 
+        stroke-width="4" 
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#hyperGlow)"/>
+
+  <!-- ==================== İÇ D ÇEKİRDEĞİ ==================== -->
+  <!-- Tam Hizanlanmış İç D Çerçevesi -->
+  <path d="M 88 78 L 114 78 A 32 32 0 0 1 114 142 L 88 142 Z" 
+        fill="none" 
+        stroke="url(#centeredDGrad)" 
+        stroke-width="4" 
+        stroke-linecap="round"
+        stroke-linejoin="round"/>
+
+  <!-- İç D Üzerinde Akan Işık İzi -->
+  <path class="inner-d-trace"
+        d="M 88 78 L 114 78 A 32 32 0 0 1 114 142 L 88 142 Z" 
+        fill="none" 
+        stroke="#38bdf8" 
+        stroke-width="3" 
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        filter="url(#perfectGlow)"/>
+
+  <!-- Çip Çentiği (Notch) -->
+  <circle cx="96" cy="87" r="2.5" fill="#38bdf8">
+    <animate attributeName="opacity" values="0.4;1;0.4" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Tam Merkezdeki Çip Çekirdek Noktası (Visual Center Node) -->
+  <circle class="core-pulse" cx="110" cy="110" r="5.5" fill="#38bdf8" filter="url(#hyperGlow)"/>
+  <circle class="core-pulse" cx="110" cy="110" r="2.5" fill="#ffffff"/>
+</svg>

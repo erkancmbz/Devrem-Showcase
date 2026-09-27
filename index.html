@@ -1,0 +1,1536 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEVREM Studio — Donanım & Mantık Laboratuvarı</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #070a13;
+      --bg-card: rgba(14, 21, 38, 0.72);
+      --bg-card-hover: rgba(20, 31, 56, 0.85);
+      --border-glow: rgba(56, 189, 248, 0.22);
+      --border-accent: rgba(99, 102, 241, 0.35);
+
+      --cyan: #38bdf8;
+      --cyan-bright: #7dd3fc;
+      --indigo: #6366f1;
+      --purple: #a855f7;
+      --emerald: #10b981;
+      --rose: #f43f5e;
+      --amber: #f59e0b;
+
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+
+      --glow-cyan: 0 0 24px rgba(56, 189, 248, 0.45);
+      --glow-indigo: 0 0 32px rgba(99, 102, 241, 0.45);
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.18) 0%, transparent 60%),
+        radial-gradient(circle at 10% 30%, rgba(56, 189, 248, 0.12) 0%, transparent 40%),
+        linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    }
+
+    /* Ambient Cursor Glow */
+    #cursorGlow {
+      position: fixed;
+      width: 450px;
+      height: 450px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.12), transparent 70%);
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(7, 10, 19, 0.82);
+      border-bottom: 1px solid var(--border-glow);
+    }
+
+    .nav-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-logo-mini {
+      width: 38px;
+      height: 38px;
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.5));
+      transition: transform 0.3s ease;
+    }
+
+    .brand-group:hover .brand-logo-mini {
+      transform: scale(1.08) rotate(2deg);
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 40%, var(--cyan) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-badge {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.14);
+      color: var(--cyan);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--cyan);
+      text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(99, 102, 241, 0.25));
+      border: 1px solid var(--cyan);
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 10px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 0 18px rgba(56, 189, 248, 0.25);
+      transition: all 0.3s ease;
+    }
+
+    .header-cta:hover {
+      box-shadow: 0 0 28px rgba(56, 189, 248, 0.5);
+      transform: translateY(-1px);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(99, 102, 241, 0.4));
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 60px 24px 80px;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-section {
+        grid-template-columns: 1fr;
+        padding-top: 40px;
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: #a5b4fc;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: var(--font-mono);
+      margin-bottom: 24px;
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 10px var(--cyan);
+      animation: pulseAnim 1.6s infinite ease-in-out;
+    }
+
+    @keyframes pulseAnim {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.6);
+        opacity: 0.5;
+      }
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 22px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 25px rgba(56, 189, 248, 0.3));
+    }
+
+    .hero-desc {
+      font-size: 1.12rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 34px;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #0284c7, #4f46e5);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #fff;
+      padding: 13px 26px;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.45);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px -5px rgba(79, 70, 229, 0.6);
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(14, 21, 38, 0.85);
+      border: 1px solid var(--border-glow);
+      color: var(--text-main);
+      padding: 13px 24px;
+      border-radius: 12px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(24, 34, 60, 0.9);
+      border-color: var(--cyan);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 24px;
+    }
+
+    .stat-item h4 {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--cyan);
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    /* LOGO INTERACTIVE STAGE */
+    .stage-wrapper {
+      position: relative;
+    }
+
+    .stage-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 28px;
+      padding: 32px;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65), 0 0 40px rgba(56, 189, 248, 0.1);
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .stage-card.high-state {
+      border-color: rgba(56, 189, 248, 0.6);
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.7), 0 0 60px rgba(56, 189, 248, 0.35);
+    }
+
+    .stage-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .stage-title {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stage-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--emerald);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+    }
+
+    .stage-status.low {
+      background: rgba(244, 63, 94, 0.12);
+      color: var(--rose);
+      border-color: rgba(244, 63, 94, 0.3);
+    }
+
+    /* THE ANIMATED LOGO CONTAINER */
+    .logo-viewport {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 0;
+      position: relative;
+    }
+
+    .logo-svg-main {
+      width: 250px;
+      height: 250px;
+      filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.75));
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .logo-viewport:hover .logo-svg-main {
+      transform: scale(1.04);
+    }
+
+    /* INTERACTIVE CONTROLS HUD */
+    .hud-controls {
+      background: rgba(9, 14, 26, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 20px;
+      margin-top: 18px;
+    }
+
+    .hud-title {
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logic-switches {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.2fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .switch-btn {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.25s ease;
+      font-family: var(--font-mono);
+    }
+
+    .switch-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .switch-btn.active {
+      background: rgba(56, 189, 248, 0.15);
+      border-color: var(--cyan);
+      color: #fff;
+      box-shadow: 0 0 16px rgba(56, 189, 248, 0.35);
+    }
+
+    .switch-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.05em;
+    }
+
+    .switch-val {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .output-indicator {
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 12px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      font-family: var(--font-mono);
+      transition: all 0.3s ease;
+    }
+
+    .output-indicator.high {
+      background: rgba(56, 189, 248, 0.22);
+      border-color: var(--cyan);
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.45);
+      color: #fff;
+    }
+
+    .output-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--cyan);
+    }
+
+    /* TRUTH TABLE MINI HUD */
+    .truth-row-active {
+      background: rgba(56, 189, 248, 0.2) !important;
+      color: #fff !important;
+      font-weight: 700;
+    }
+
+    /* MODE TOGGLES */
+    .mode-pills {
+      display: flex;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .mode-pill {
+      flex: 1;
+      padding: 8px 12px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+
+    .mode-pill:hover {
+      color: var(--text-muted);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .mode-pill.active {
+      background: rgba(99, 102, 241, 0.25);
+      border-color: var(--indigo);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* FEATURES GRID */
+    .section-container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+
+    .section-badge {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--cyan);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 32px;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 24px rgba(56, 189, 248, 0.15);
+    }
+
+    .feature-card:hover::before {
+      opacity: 1;
+    }
+
+    .feature-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      color: var(--cyan);
+    }
+
+    .feature-card:nth-child(2) .feature-icon-box {
+      background: rgba(99, 102, 241, 0.1);
+      border-color: rgba(99, 102, 241, 0.3);
+      color: var(--indigo);
+    }
+
+    .feature-card:nth-child(3) .feature-icon-box {
+      background: rgba(16, 185, 129, 0.1);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: var(--emerald);
+    }
+
+    .feature-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .feature-text {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    /* REALTIME SIGNAL DEMO SECTION */
+    .scope-box {
+      background: #090e1a;
+      border: 1px solid var(--border-glow);
+      border-radius: 20px;
+      padding: 24px;
+      margin-top: 48px;
+    }
+
+    .scope-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .scope-canvas {
+      width: 100%;
+      height: 140px;
+      background: #050811;
+      border-radius: 12px;
+      display: block;
+      border: 1px solid rgba(56, 189, 248, 0.15);
+    }
+
+    /* LOGO ASSET & EXPORT STUDIO */
+    .export-section {
+      background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.12), transparent 70%);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 80px 24px;
+    }
+
+    .export-grid {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 860px) {
+      .export-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .export-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 20px;
+      padding: 32px;
+    }
+
+    .code-preview-box {
+      background: #050811;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #94a3b8;
+      max-height: 220px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-break: break-all;
+      margin: 16px 0;
+    }
+
+    .palette-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .palette-item {
+      background: #050811;
+      border-radius: 10px;
+      padding: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      text-align: center;
+    }
+
+    .palette-color {
+      height: 38px;
+      border-radius: 6px;
+      margin-bottom: 8px;
+    }
+
+    .palette-name {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .palette-hex {
+      font-size: 0.65rem;
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+    }
+
+    /* FOOTER */
+    footer {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.88rem;
+      color: var(--text-dim);
+    }
+
+    /* TOAST ALERT */
+    #toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: rgba(14, 21, 38, 0.95);
+      border: 1px solid var(--cyan);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(56, 189, 248, 0.4);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      transform: translateY(20px);
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 1000;
+    }
+
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Ambient Light Follower -->
+  <div id="cursorGlow"></div>
+
+  <!-- NAVIGATION -->
+  <header>
+    <div class="nav-container">
+      <a href="#" class="brand-group">
+        <!-- Mini SVG Logo -->
+        <svg class="brand-logo-mini" viewBox="0 0 220 220">
+          <defs>
+            <linearGradient id="miniGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" />
+              <stop offset="100%" stop-color="#6366f1" />
+            </linearGradient>
+          </defs>
+          <rect width="220" height="220" rx="44" fill="#0b0f19" />
+          <line x1="20" y1="80" x2="58" y2="80" stroke="#38bdf8" stroke-width="7" stroke-linecap="round" />
+          <line x1="20" y1="140" x2="58" y2="140" stroke="#38bdf8" stroke-width="7" stroke-linecap="round" />
+          <line x1="172" y1="110" x2="200" y2="110" stroke="#38bdf8" stroke-width="7" stroke-linecap="round" />
+          <circle cx="200" cy="110" r="7" fill="#38bdf8" />
+          <path d="M 58 46 L 118 46 A 64 64 0 0 1 118 174 L 58 174 Z" fill="#131b2e" stroke="url(#miniGrad)"
+            stroke-width="8" stroke-linejoin="round" />
+          <circle cx="110" cy="110" r="6" fill="#38bdf8" />
+        </svg>
+        <span class="brand-title">DEVREM <span class="brand-badge">STUDIO v2.5</span></span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#features" class="nav-link">Özellikler</a>
+        <a href="#interactive-gate" class="nav-link">Mantık Laboratuvarı</a>
+        <a href="#oscilloscope" class="nav-link">Canlı Sinyal</a>
+        <a href="#export-kit" class="nav-link">Logo Kiti</a>
+      </nav>
+
+      <a href="#interactive-gate" class="header-cta">
+        <span>⚡ İnteraktif Çalıştır</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <main class="hero-section">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span>DONANIM & SİNYAL MİMARİSİ</span>
+      </div>
+
+      <h1 class="hero-title">
+        Mantık Kapılarından Yüksek Frekansa,<br>
+        <span class="gradient-text">Geleceğin Elektronik Laboratuvarı.</span>
+      </h1>
+
+      <p class="hero-desc">
+        Elektrik-Elektronik Mühendisliği öğrencileri ve tasarımcıları için sıfır kurulumlu, hafif ve güçlü web
+        istasyonu.
+        Karakteristik <strong>"D"</strong> logomuz; bir <strong>AND (VE) mantık kapısı</strong>, entegre çip çekirdeği
+        ve akıcı dijital veri yollarını tek gövdede birleştirir.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#interactive-gate" class="btn-primary">
+          <span>⚡ Mantık Kapısını Test Et</span>
+          <span>→</span>
+        </a>
+        <button id="btnDownloadAnimated" class="btn-secondary">
+          <span>📥 Animasyonlu Logoyu İndir</span>
+        </button>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item">
+          <h4>60 FPS</h4>
+          <p>Sıfır Gecikmeli Kanvas</p>
+        </div>
+        <div class="stat-item">
+          <h4>0 kB</h4>
+          <p>Harici Kütüphane Bağımlılığı</p>
+        </div>
+        <div class="stat-item">
+          <h4>100%</h4>
+          <p>Vektörel & İnteraktif</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAGE: ANIMATED & INTERACTIVE LOGO -->
+    <div class="stage-wrapper" id="interactive-gate">
+      <div class="stage-card" id="mainStageCard">
+        <div class="stage-header">
+          <div class="stage-title">
+            <span>●</span>
+            <span id="stageModeName">MANTIK KAPISI (AND GATE)</span>
+          </div>
+          <div class="stage-status" id="stageStatusBadge">
+            <span>⚡ DURUM: </span><span id="stageStatusText">LOW (0)</span>
+          </div>
+        </div>
+
+        <!-- SVG VIEWPORT -->
+        <div class="logo-viewport">
+          <svg id="stageSvg" class="logo-svg-main" viewBox="0 0 220 220">
+            <defs>
+              <linearGradient id="mainDGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop id="gradStop1" offset="0%" stop-color="#38bdf8" />
+                <stop id="gradStop2" offset="100%" stop-color="#6366f1" />
+              </linearGradient>
+
+              <filter id="pGlow" x="-30%" y="-30%" width="160%" height="160%">
+                <feGaussianBlur stdDeviation="3.5" result="blur" />
+                <feMerge>
+                  <feMergeNode in="blur" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+
+              <filter id="hGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="6" result="b2" />
+                <feGaussianBlur stdDeviation="2" result="b1" />
+                <feMerge>
+                  <feMergeNode in="b2" />
+                  <feMergeNode in="b1" />
+                  <feMergeNode in="SourceGraphic" />
+                </feMerge>
+              </filter>
+            </defs>
+
+            <!-- Arka Plan -->
+            <rect id="svgBg" width="220" height="220" rx="44" fill="#0b0f19" style="transition: all 0.4s ease;" />
+
+            <!-- Yayılan Radar Halka Dalgası -->
+            <circle id="coreRipple1" cx="110" cy="110" r="16" fill="none" stroke="#38bdf8" stroke-width="2"
+              opacity="0" />
+            <circle id="coreRipple2" cx="110" cy="110" r="16" fill="none" stroke="#818cf8" stroke-width="1.5"
+              opacity="0" />
+
+            <!-- GİRDİ A HATTI -->
+            <line id="lineA" x1="20" y1="80" x2="58" y2="80" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"
+              opacity="0.4" />
+            <circle id="nodeA" cx="20" cy="80" r="5" fill="#38bdf8" opacity="0.5" />
+            <!-- A Enerji Paketi -->
+            <circle id="packetA" cx="20" cy="80" r="3.5" fill="#ffffff" filter="url(#hGlow)" opacity="0" />
+
+            <!-- GİRDİ B HATTI -->
+            <line id="lineB" x1="20" y1="140" x2="58" y2="140" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"
+              opacity="0.4" />
+            <circle id="nodeB" cx="20" cy="140" r="5" fill="#38bdf8" opacity="0.5" />
+            <!-- B Enerji Paketi -->
+            <circle id="packetB" cx="20" cy="140" r="3.5" fill="#ffffff" filter="url(#hGlow)" opacity="0" />
+
+            <!-- ÇIKTI Y HATTI -->
+            <line id="lineY" x1="172" y1="110" x2="200" y2="110" stroke="#38bdf8" stroke-width="6"
+              stroke-linecap="round" opacity="0.3" />
+            <!-- Y Enerji Paketi -->
+            <circle id="packetY" cx="172" cy="110" r="4" fill="#ffffff" filter="url(#hGlow)" opacity="0" />
+            <!-- Y Terminal Ucu -->
+            <circle id="nodeY" cx="200" cy="110" r="6" fill="#38bdf8" opacity="0.4" />
+
+            <!-- ANA BÜYÜK D GÖVDESİ -->
+            <path id="bodyD" d="M 58 46 L 118 46 A 64 64 0 0 1 118 174 L 58 174 Z" fill="#131b2e"
+              stroke="url(#mainDGrad)" stroke-width="7" stroke-linejoin="round" filter="url(#pGlow)" />
+
+            <!-- D Çeperi Dönen Enerji İzi -->
+            <path id="perimeterTracer" d="M 58 46 L 118 46 A 64 64 0 0 1 118 174 L 58 174 Z" fill="none"
+              stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="24 300"
+              stroke-dashoffset="0" opacity="0.8" />
+
+            <!-- İÇ D ÇEKİRDEĞİ -->
+            <path id="innerD" d="M 88 78 L 114 78 A 32 32 0 0 1 114 142 L 88 142 Z" fill="none" stroke="url(#mainDGrad)"
+              stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+            <!-- Çentik (Notch) -->
+            <circle id="notchNode" cx="96" cy="87" r="2.5" fill="#38bdf8" />
+
+            <!-- Merkez Noktası (Visual Center Node: 110, 110) -->
+            <circle id="centerPulse" cx="110" cy="110" r="5" fill="#38bdf8" filter="url(#pGlow)" />
+            <circle id="centerCore" cx="110" cy="110" r="2" fill="#ffffff" />
+          </svg>
+        </div>
+
+        <!-- HUD INTERACTIVE CONTROLS -->
+        <div class="hud-controls">
+          <div class="hud-title">
+            <span>İNTERAKTİF GİRİŞ / ÇIKIŞ TERMİNALLERİ</span>
+            <span style="font-family: var(--font-mono); color: var(--cyan);">A • B = Y</span>
+          </div>
+
+          <div class="logic-switches">
+            <!-- Pin A -->
+            <button class="switch-btn" id="btnToggleA">
+              <span class="switch-label">GİRDİ A</span>
+              <span class="switch-val" id="valA">0</span>
+            </button>
+
+            <!-- Pin B -->
+            <button class="switch-btn" id="btnToggleB">
+              <span class="switch-label">GİRDİ B</span>
+              <span class="switch-val" id="valB">0</span>
+            </button>
+
+            <!-- Output Y -->
+            <div class="output-indicator" id="indicatorY">
+              <span class="switch-label" style="color: var(--text-dim);">ÇIKTI Y (AND)</span>
+              <span class="output-val" id="valY">0</span>
+            </div>
+          </div>
+
+          <!-- Mode Selectors -->
+          <div class="mode-pills">
+            <button class="mode-pill active" id="modeInteractive">🎛️ Manuel Kapı</button>
+            <button class="mode-pill" id="modePulse">⚡ Sinyal Döngüsü</button>
+            <button class="mode-pill" id="modeOverclock">🔥 Overclock (High)</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- FEATURES -->
+  <section class="section-container" id="features">
+    <div class="section-header">
+      <span class="section-badge">Mühendislik Kabiliyetleri</span>
+      <h2 class="section-title">Devrem Studio'nun Güçlü Altyapısı</h2>
+      <p class="section-desc">
+        Ağır ve karmaşık masaüstü yazılımları beklemeye son. Tüm teorik hesaplar, interaktif çizimler ve
+        görselleştiriciler tarayıcınızda hazır.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      <!-- 1 -->
+      <div class="feature-card">
+        <div class="feature-icon-box">🔬</div>
+        <h3 class="feature-title">Canlı Filtre & Bode Eğrisi</h3>
+        <p class="feature-text">
+          Alçak geçiren, yüksek geçiren, bant geçiren analog filtreleri interaktif frekans spektrumunda gerçek zamanlı
+          genlik ve faz analiziyle test edin.
+        </p>
+      </div>
+
+      <!-- 2 -->
+      <div class="feature-card">
+        <div class="feature-icon-box">🎛️</div>
+        <h3 class="feature-title">2. Derece Kontrol Sistemleri</h3>
+        <p class="feature-text">
+          Doğal frekans (ωn) ve sönüm oranı (ζ) parametreleriyle anlık basamak yanıtı (Step Response), aşım (Mp) ve
+          oturma süresi (Ts) hesaplamaları.
+        </p>
+      </div>
+
+      <!-- 3 -->
+      <div class="feature-card">
+        <div class="feature-icon-box">⚡</div>
+        <h3 class="feature-title">Dijital Mantık & Çip Tasarımı</h3>
+        <p class="feature-text">
+          AND, OR, NAND, XOR kapılarından durum makinelerine (FSM) kadar dijital lojik mimariyi anlık doğruluk
+          tablolarıyla simüle edin.
+        </p>
+      </div>
+    </div>
+
+    <!-- LIVE SIGNAL GENERATOR -->
+    <div class="scope-box" id="oscilloscope">
+      <div class="scope-header">
+        <div style="display:flex; align-items:center; gap: 10px;">
+          <span style="color:var(--cyan); font-size:1.2rem;">📈</span>
+          <strong style="font-family:var(--font-mono); font-size:0.95rem; letter-spacing:0.05em;">GERÇEK ZAMANLI SİNYAL
+            VE SAAT ÜRETECİ (CLOCK OSC)</strong>
+        </div>
+        <span style="font-family:var(--font-mono); font-size:0.75rem; color:var(--text-dim);" id="scopeFreqLabel">f =
+          1.00 kHz • Vpp = 5.0V</span>
+      </div>
+      <canvas id="scopeCanvas" class="scope-canvas"></canvas>
+    </div>
+  </section>
+
+  <!-- LOGO KIT & EXPORT SECTION -->
+  <section class="export-section" id="export-kit">
+    <div class="export-grid">
+      <!-- SVG Code & Export -->
+      <div class="export-card">
+        <h3 style="font-family:var(--font-display); font-size:1.4rem; margin-bottom:8px;">🎨 Vektörel Logo & İndirme
+        </h3>
+        <p style="color:var(--text-muted); font-size:0.9rem;">
+          Tasarımı doğrudan SVG olarak indirebilir veya web projelerinizde tek satırda kullanabilirsiniz.
+        </p>
+
+        <div class="code-preview-box" id="svgCodeBox">&lt;svg xmlns="http://www.w3.org/2000/svg" width="220"
+          height="220" viewBox="0 0 220 220"&gt;
+          &lt;!-- Devrem Studio Official Vector Logo --&gt;
+          &lt;rect width="220" height="220" rx="44" fill="#0b0f19"/&gt;
+          ...
+          &lt;/svg&gt;</div>
+
+        <div style="display:flex; gap:12px; flex-wrap:wrap;">
+          <button class="btn-primary" id="btnCopySvg" style="padding:10px 18px; font-size:0.88rem;">
+            📋 SVG Kodunu Kopyala
+          </button>
+          <button class="btn-secondary" id="btnDownloadStatic" style="padding:10px 18px; font-size:0.88rem;">
+            💾 Statik SVG İndir
+          </button>
+        </div>
+      </div>
+
+      <!-- Brand Palette -->
+      <div class="export-card">
+        <h3 style="font-family:var(--font-display); font-size:1.4rem; margin-bottom:8px;">💎 Resmi Renk Paleti</h3>
+        <p style="color:var(--text-muted); font-size:0.9rem;">
+          Devrem logosunda kullanılan mühendislik ve siberpunk renk tonları:
+        </p>
+
+        <div class="palette-list">
+          <div class="palette-item">
+            <div class="palette-color" style="background: #38bdf8; box-shadow: 0 0 12px rgba(56,189,248,0.4);"></div>
+            <div class="palette-name">Electric Cyan</div>
+            <div class="palette-hex">#38bdf8</div>
+          </div>
+          <div class="palette-item">
+            <div class="palette-color" style="background: #6366f1; box-shadow: 0 0 12px rgba(99,102,241,0.4);"></div>
+            <div class="palette-name">Quantum Indigo</div>
+            <div class="palette-hex">#6366f1</div>
+          </div>
+          <div class="palette-item">
+            <div class="palette-color" style="background: #131b2e; border: 1px solid rgba(255,255,255,0.15);"></div>
+            <div class="palette-name">Silicon Slate</div>
+            <div class="palette-hex">#131b2e</div>
+          </div>
+          <div class="palette-item">
+            <div class="palette-color" style="background: #0b0f19; border: 1px solid rgba(255,255,255,0.15);"></div>
+            <div class="palette-name">Void Black</div>
+            <div class="palette-hex">#0b0f19</div>
+          </div>
+        </div>
+
+        <div
+          style="margin-top: 24px; padding: 14px; background: rgba(56,189,248,0.06); border-radius: 12px; border: 1px dashed rgba(56,189,248,0.3); font-size: 0.85rem; color: var(--text-muted);">
+          💡 <strong>Tasarım Felsefesi:</strong> Soldaki iki hat <em>(A ve B girdisi)</em> çip çekirdeğinde işlenir ve
+          sağdaki terminalden <em>(Y çıktısı)</em> yüksek kararlılıkla iletilir.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANGELOG / YENILIKLER -->
+  <section class="section-container" id="changelog" style="padding-top:60px; padding-bottom:60px;">
+    <div class="section-header">
+      <span class="section-badge">Surum Gecmisi</span>
+      <h2 class="section-title">Yenilikler &amp; Guncellemeler</h2>
+      <p class="section-desc">Devrem Studio buyumeye devam ediyor. Son surumun onemli degisiklikleri.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-top:32px;">
+
+      <div class="feature-card" style="border-color:rgba(56,189,248,0.3);">
+        <div class="feature-icon-box" style="background:rgba(56,189,248,0.12); color:#38bdf8;">ğŸ“±</div>
+        <h3 class="feature-title">v2.5 â€” Mobil Uyumluluk Paketi</h3>
+        <p class="feature-text">
+          18 kapsamli mobil duzeltme: yatay tasma engeli, accordion menu flex-shrink sorunu,
+          Lab Modal 2-satirli header, iOS input zoom ve 380px alti ekran optimizasyonu.
+        </p>
+        <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="background:rgba(56,189,248,0.1); color:#38bdf8; border:1px solid rgba(56,189,248,0.25); border-radius:20px; font-size:0.72rem; padding:2px 10px;">max-width:768px</span>
+          <span style="background:rgba(56,189,248,0.1); color:#38bdf8; border:1px solid rgba(56,189,248,0.25); border-radius:20px; font-size:0.72rem; padding:2px 10px;">flex-shrink fix</span>
+          <span style="background:rgba(56,189,248,0.1); color:#38bdf8; border:1px solid rgba(56,189,248,0.25); border-radius:20px; font-size:0.72rem; padding:2px 10px;">iOS 16px input</span>
+        </div>
+      </div>
+
+      <div class="feature-card" style="border-color:rgba(99,102,241,0.3);">
+        <div class="feature-icon-box" style="background:rgba(99,102,241,0.12); color:#6366f1;">ğŸ”¬</div>
+        <h3 class="feature-title">v2.5 â€” Lab Modal Yeniden Tasarim</h3>
+        <p class="feature-text">
+          Muhendislik Laboratuvari modali mobilede 2-satir header aldi:
+          baslik + kapatma butonlari ustte, 8 sekme altta yatay kaydirmali.
+          Sekme ikonlari mobilede gizlendi.
+        </p>
+        <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="background:rgba(99,102,241,0.1); color:#818cf8; border:1px solid rgba(99,102,241,0.25); border-radius:20px; font-size:0.72rem; padding:2px 10px;">8 sekme</span>
+          <span style="background:rgba(99,102,241,0.1); color:#818cf8; border:1px solid rgba(99,102,241,0.25); border-radius:20px; font-size:0.72rem; padding:2px 10px;">horizontal scroll</span>
+        </div>
+      </div>
+
+      <div class="feature-card" style="border-color:rgba(16,185,129,0.3);">
+        <div class="feature-icon-box" style="background:rgba(16,185,129,0.12); color:#10b981;">ğŸ“š</div>
+        <h3 class="feature-title">v2.5 â€” Guclendirilmis Kaynak Arsivi</h3>
+        <p class="feature-text">
+          Kaynak veritabani 64 kaynak ile basladiniz, hedef 121 kaynak. Universite bazli
+          sinav arsivinde emoji filtreler kaldirildi, daha sade ve profesyonel gorunum.
+        </p>
+        <div style="margin-top:12px; display:flex; flex-wrap:wrap; gap:6px;">
+          <span style="background:rgba(16,185,129,0.1); color:#10b981; border:1px solid rgba(16,185,129,0.25); border-radius:20px; font-size:0.72rem; padding:2px 10px;">121 kaynak hedef</span>
+          <span style="background:rgba(16,185,129,0.1); color:#10b981; border:1px solid rgba(16,185,129,0.25); border-radius:20px; font-size:0.72rem; padding:2px 10px;">8 universite</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    <div style="display:flex; align-items:center; gap:10px;">
+      <span style="font-weight:700; color:var(--text-main);">DEVREM STUDIO</span>
+      <span>•</span>
+      <span>Elektrik-Elektronik Mühendisliği Rehberi & Laboratuvarı</span>
+    </div>
+    <div>
+      <span>Telif Hakkı © 2026 • Tüm Hakları Saklıdır.</span>
+    </div>
+  </footer>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast">
+    <span id="toastIcon">✨</span>
+    <span id="toastMsg">İşlem tamamlandı!</span>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC & ANIMATION CONTROLLER -->
+  <script>
+    // --- 1. AMBIENT CURSOR GLOW ---
+    const cursorGlow = document.getElementById('cursorGlow');
+    window.addEventListener('mousemove', (e) => {
+      cursorGlow.style.left = e.clientX + 'px';
+      cursorGlow.style.top = e.clientY + 'px';
+    });
+
+    // --- 2. LOGIC GATE & STAGE ENGINE ---
+    let stateA = 0;
+    let stateB = 0;
+    let mode = 'interactive'; // 'interactive', 'pulse', 'overclock'
+    let animFrameId = null;
+
+    const btnToggleA = document.getElementById('btnToggleA');
+    const btnToggleB = document.getElementById('btnToggleB');
+    const valA = document.getElementById('valA');
+    const valB = document.getElementById('valB');
+    const valY = document.getElementById('valY');
+    const indicatorY = document.getElementById('indicatorY');
+    const mainStageCard = document.getElementById('mainStageCard');
+    const stageStatusText = document.getElementById('stageStatusText');
+    const stageStatusBadge = document.getElementById('stageStatusBadge');
+    const stageModeName = document.getElementById('stageModeName');
+
+    // SVG Elements
+    const lineA = document.getElementById('lineA');
+    const lineB = document.getElementById('lineB');
+    const lineY = document.getElementById('lineY');
+    const nodeA = document.getElementById('nodeA');
+    const nodeB = document.getElementById('nodeB');
+    const nodeY = document.getElementById('nodeY');
+    const packetA = document.getElementById('packetA');
+    const packetB = document.getElementById('packetB');
+    const packetY = document.getElementById('packetY');
+    const perimeterTracer = document.getElementById('perimeterTracer');
+    const coreRipple1 = document.getElementById('coreRipple1');
+    const coreRipple2 = document.getElementById('coreRipple2');
+    const centerPulse = document.getElementById('centerPulse');
+
+    function showToast(msg, icon = '✨') {
+      const toast = document.getElementById('toast');
+      document.getElementById('toastMsg').textContent = msg;
+      document.getElementById('toastIcon').textContent = icon;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2800);
+    }
+
+    function updateLogic() {
+      const outY = (stateA === 1 && stateB === 1) ? 1 : 0;
+
+      // Update UI texts
+      valA.textContent = stateA;
+      valB.textContent = stateB;
+      valY.textContent = outY;
+
+      btnToggleA.classList.toggle('active', stateA === 1);
+      btnToggleB.classList.toggle('active', stateB === 1);
+      indicatorY.classList.toggle('high', outY === 1);
+      mainStageCard.classList.toggle('high-state', outY === 1);
+
+      if (outY === 1) {
+        stageStatusText.textContent = "HIGH (1) — TETİKLENDİ!";
+        stageStatusBadge.classList.remove('low');
+      } else {
+        stageStatusText.textContent = "LOW (0) — BEKLEMEDE";
+        stageStatusBadge.classList.add('low');
+      }
+
+      // Visual lines styling based on state
+      lineA.style.opacity = stateA ? '1' : '0.35';
+      nodeA.style.opacity = stateA ? '1' : '0.4';
+      lineB.style.opacity = stateB ? '1' : '0.35';
+      nodeB.style.opacity = stateB ? '1' : '0.4';
+      lineY.style.opacity = outY ? '1' : '0.25';
+      nodeY.style.opacity = outY ? '1' : '0.3';
+
+      if (outY === 1) {
+        nodeY.setAttribute('filter', 'url(#hGlow)');
+        centerPulse.setAttribute('filter', 'url(#hGlow)');
+      } else {
+        nodeY.removeAttribute('filter');
+        centerPulse.setAttribute('filter', 'url(#pGlow)');
+      }
+    }
+
+    btnToggleA.addEventListener('click', () => {
+      if (mode !== 'interactive') setMode('interactive');
+      stateA = stateA === 0 ? 1 : 0;
+      updateLogic();
+    });
+
+    btnToggleB.addEventListener('click', () => {
+      if (mode !== 'interactive') setMode('interactive');
+      stateB = stateB === 0 ? 1 : 0;
+      updateLogic();
+    });
+
+    // --- 3. ANIMATION LOOP ---
+    let t = 0;
+    function renderAnimation() {
+      t += 0.02;
+
+      // Tracer around D perimeter
+      const perimeterOffset = (t * 60) % 324;
+      perimeterTracer.setAttribute('stroke-dashoffset', -perimeterOffset);
+
+      // Packet A
+      if (stateA === 1 || mode === 'pulse') {
+        const progressA = (t * 1.5) % 1;
+        const currentXA = 20 + progressA * (58 - 20);
+        packetA.setAttribute('cx', currentXA);
+        packetA.setAttribute('opacity', Math.sin(progressA * Math.PI));
+      } else {
+        packetA.setAttribute('opacity', '0');
+      }
+
+      // Packet B
+      if (stateB === 1 || mode === 'pulse') {
+        const progressB = ((t * 1.5) + 0.35) % 1;
+        const currentXB = 20 + progressB * (58 - 20);
+        packetB.setAttribute('cx', currentXB);
+        packetB.setAttribute('opacity', Math.sin(progressB * Math.PI));
+      } else {
+        packetB.setAttribute('opacity', '0');
+      }
+
+      // Output Packet Y
+      const isHigh = (stateA === 1 && stateB === 1) || mode === 'pulse' || mode === 'overclock';
+      if (isHigh) {
+        const progressY = ((t * 2) + 0.7) % 1;
+        const currentXY = 172 + progressY * (200 - 172);
+        packetY.setAttribute('cx', currentXY);
+        packetY.setAttribute('opacity', Math.sin(progressY * Math.PI));
+
+        // Core Ripples
+        const rippleScale1 = (t * 0.8) % 1;
+        coreRipple1.setAttribute('r', 16 + rippleScale1 * 45);
+        coreRipple1.setAttribute('opacity', (1 - rippleScale1) * 0.7);
+
+        const rippleScale2 = ((t * 0.8) + 0.5) % 1;
+        coreRipple2.setAttribute('r', 16 + rippleScale2 * 45);
+        coreRipple2.setAttribute('opacity', (1 - rippleScale2) * 0.5);
+
+        // Core Pulse
+        const scaleVal = 5 + Math.sin(t * 8) * 1.8;
+        centerPulse.setAttribute('r', scaleVal);
+      } else {
+        packetY.setAttribute('opacity', '0');
+        coreRipple1.setAttribute('opacity', '0');
+        coreRipple2.setAttribute('opacity', '0');
+        centerPulse.setAttribute('r', 5);
+      }
+
+      animFrameId = requestAnimationFrame(renderAnimation);
+    }
+    renderAnimation();
+
+    // --- 4. MODE HANDLING ---
+    const modeInteractive = document.getElementById('modeInteractive');
+    const modePulse = document.getElementById('modePulse');
+    const modeOverclock = document.getElementById('modeOverclock');
+
+    function setMode(newMode) {
+      mode = newMode;
+      modeInteractive.classList.toggle('active', mode === 'interactive');
+      modePulse.classList.toggle('active', mode === 'pulse');
+      modeOverclock.classList.toggle('active', mode === 'overclock');
+
+      if (mode === 'interactive') {
+        stageModeName.textContent = "MANUEL MANTIK MODU (AND GATE)";
+        updateLogic();
+      } else if (mode === 'pulse') {
+        stageModeName.textContent = "OTOMATİK SİNYAL DÖNGÜSÜ (CLOCK CYCLE)";
+        stateA = 1;
+        stateB = 1;
+        updateLogic();
+      } else if (mode === 'overclock') {
+        stageModeName.textContent = "🔥 OVERCLOCK MODU (TÜM GÜÇ AÇIK)";
+        stateA = 1;
+        stateB = 1;
+        updateLogic();
+      }
+    }
+
+    modeInteractive.addEventListener('click', () => setMode('interactive'));
+    modePulse.addEventListener('click', () => setMode('pulse'));
+    modeOverclock.addEventListener('click', () => setMode('overclock'));
+
+    // --- 5. REALTIME SCOPE CANVAS ---
+    const canvas = document.getElementById('scopeCanvas');
+    const ctx = canvas.getContext('2d');
+    let scopeTime = 0;
+
+    function resizeCanvas() {
+      canvas.width = canvas.offsetWidth * window.devicePixelRatio;
+      canvas.height = canvas.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function drawScope() {
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      ctx.clearRect(0, 0, w, h);
+
+      // Grid lines
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.08)';
+      ctx.lineWidth = 1;
+      const step = 28;
+      for (let x = 0; x < w; x += step) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += step) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // Middle ground line
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+      ctx.beginPath();
+      ctx.moveTo(0, h / 2);
+      ctx.lineTo(w, h / 2);
+      ctx.stroke();
+
+      scopeTime += 0.04;
+
+      // Draw Main Signal Wave (Sine modulated by square pulse)
+      ctx.beginPath();
+      ctx.lineWidth = 2.5;
+      ctx.strokeStyle = '#38bdf8';
+      ctx.shadowColor = '#38bdf8';
+      ctx.shadowBlur = 12;
+
+      for (let x = 0; x < w; x++) {
+        const freq = 0.025;
+        const outState = (stateA === 1 && stateB === 1) ? 1.4 : 0.6;
+        const y = (h / 2) + Math.sin(x * freq + scopeTime * 2) * (34 * outState)
+          + Math.sin(x * freq * 2 + scopeTime * 4) * (8 * outState);
+        if (x === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.shadowBlur = 0;
+
+      requestAnimationFrame(drawScope);
+    }
+    drawScope();
+
+    // --- 6. EXPORT & DOWNLOAD ACTIONS ---
+    const svgContent = `<svg xmlns="http://www.w3.org/2000/svg" width="220" height="220" viewBox="0 0 220 220">
+  <defs>
+    <linearGradient id="centeredDGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8" />
+      <stop offset="100%" style="stop-color:#6366f1" />
+    </linearGradient>
+    <filter id="perfectGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <rect width="220" height="220" rx="44" fill="#0b0f19"/>
+  <line x1="20" y1="80" x2="58" y2="80" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="20" cy="80" r="5" fill="#38bdf8"/>
+  <line x1="20" y1="140" x2="58" y2="140" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="20" cy="140" r="5" fill="#38bdf8"/>
+  <line x1="172" y1="110" x2="200" y2="110" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="200" cy="110" r="6" fill="#38bdf8" filter="url(#perfectGlow)"/>
+  <path d="M 58 46 L 118 46 A 64 64 0 0 1 118 174 L 58 174 Z" fill="#131b2e" stroke="url(#centeredDGrad)" stroke-width="7" stroke-linejoin="round" filter="url(#perfectGlow)"/>
+  <path d="M 88 78 L 114 78 A 32 32 0 0 1 114 142 L 88 142 Z" fill="none" stroke="url(#centeredDGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="96" cy="87" r="2.5" fill="#38bdf8"/>
+  <circle cx="110" cy="110" r="5" fill="#38bdf8" filter="url(#perfectGlow)"/>
+</svg>`;
+
+    document.getElementById('svgCodeBox').textContent = svgContent;
+
+    document.getElementById('btnCopySvg').addEventListener('click', () => {
+      navigator.clipboard.writeText(svgContent).then(() => {
+        showToast("SVG kodu panoya kopyalandı!", "📋");
+      });
+    });
+
+    document.getElementById('btnDownloadStatic').addEventListener('click', () => {
+      const blob = new Blob([svgContent], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'devrem-logo.svg';
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("Statik SVG indirildi!", "💾");
+    });
+
+    document.getElementById('btnDownloadAnimated').addEventListener('click', () => {
+      const a = document.createElement('a');
+      a.href = 'logo-animated.svg';
+      a.download = 'devrem-logo-animated.svg';
+      a.click();
+      showToast("Animasyonlu SVG indirildi!", "🚀");
+    });
+
+    // Start with 0, 0
+    updateLogic();
+  </script>
+</body>
+
+</html>
