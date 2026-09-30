@@ -65,6 +65,11 @@ Tüm ders kartlarının üzerinde bulunan hızlı başlatma butonu, kullanıcın
 Platform bünyesinde geliştirilen tüm simülasyon ve analiz araçları **HiDPI Retina uyumlu 2D Canvas Motoru** üzerinde sıfırdan matematiksel algoritmalarla inşa edilmiştir.
 
 ### ⚡ 3.1 Transformatör Eşdeğer Devre & Boşta/Kısa Devre Testi (P0)
+
+<div align="center">
+  <img src="docs/images/simulators/transformator_esdeger_koyu.png" alt="Transformatör Fazör ve Eşdeğer Devre Simülatörü" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 Boşta çalışma ($V_{oc}, I_{oc}, P_{oc}$) ve kısa devre ($V_{sc}, I_{sc}, P_{sc}$) deney verilerini işleyerek demir nüve ve sargı empedanslarını hesaplar:
 $$R_c = \frac{V_{oc}^2}{P_{oc}}, \quad X_m = \frac{V_{oc}}{I_m}, \quad R_{eq} = \frac{P_{sc}}{I_{sc}^2}, \quad X_{eq} = \sqrt{Z_{eq}^2 - R_{eq}^2}$$
 * **Yetkinlikler:** $%0 - %150$ yükleme oranı ve değişken $\cos\phi$ (ileri/geri) altında tam verim ($\eta$) ve gerilim regülasyonu ($\%VR$) hesaplar; $V_1, V_2', I_2'R_{eq}, jI_2'X_{eq}$ dinamik Canvas fazör diyagramını çizer.
@@ -80,6 +85,11 @@ $$V_{zn} = \sqrt{3} \cdot V_{sargı} \cdot \cos(30^\circ), \quad k_w = \frac{\sq
 ---
 
 ### 🔋 3.3 Güç Elektroniği DC-DC Dönüştürücü & 3-Kanal Osiloskop (P1)
+
+<div align="center">
+  <img src="docs/images/simulators/dcdc_donusturucu_koyu.png" alt="DC-DC Dönüştürücü 3-Kanal Osiloskop" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 Buck (Düşürücü), Boost (Yükseltici) ve Buck-Boost topolojilerinde süreksiz iletim modunu (DCM) ve kritik endüktansı hesaplar:
 $$L_{crit} = \frac{(1-D)R}{2f_s}, \quad \Delta V_o = \frac{(1-D)V_o}{8LC f_s^2}$$
 * **3-Kanal Osiloskop:** Bobin akımı $i_L(t)$, anahtar gerilimi $v_{sw}(t)$ ve diyot akımı $i_D(t)$ eşzamanlı dalga formları.
@@ -87,6 +97,11 @@ $$L_{crit} = \frac{(1-D)R}{2f_s}, \quad \Delta V_o = \frac{(1-D)V_o}{8LC f_s^2}$
 ---
 
 ### ⚙️ 3.4 Asenkron Motor Tork-Hız & V/f Sürücü Lab (P1)
+
+<div align="center">
+  <img src="docs/images/simulators/asenkron_motor_koyu.png" alt="Asenkron Motor Tork Hız Kloss Eğrisi" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 3-Fazlı sincap kafesli asenkron motorun Thevenin eşdeğeri ve Kloss bağıntısı üzerinden hız-tork eğrisini çizer:
 $$T = \frac{2 T_{max}}{\frac{s}{s_{max}} + \frac{s_{max}}{s}}, \quad n_s = \frac{120 f}{P}$$
 * **Skaler V/f Kontrolü:** 15 Hz – 75 Hz frekans kaydırıcısı ile sabit tork ve alan zayıflatma (Field Weakening) bölgelerini simüle eder; $T_{st}, T_n, T_{max}$ kritik noktalarını işaretler.
@@ -181,6 +196,11 @@ $$y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau, \quad x_N(t) = \frac{4}{
 ---
 
 ### 🧩 3.14 Karnaugh Haritası (K-Map) Çözücü & Mantık Sentezi (P1)
+
+<div align="center">
+  <img src="docs/images/simulators/kmap_cozucu_koyu.png" alt="K-Map Çözücü ve Mantık Sentezi" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 2, 3 ve 4 değişkenli Gray kodlu Karnaugh matrisinde interaktif hücre toggling ile Quine-McCluskey algoritmasını çalıştırır:
 $$F(A,B,C,D) = \sum m(...) + d(...)$$
 * **Özellikler:** 2, 3 ve 4 değişkenli matris, Don't Care ($X$) desteği, asal çarpanlar (Prime Implicants) ve zorunlu terimler analizi ile en sadeleştirilmiş SOP devresi çıkarımı.
@@ -188,6 +208,11 @@ $$F(A,B,C,D) = \sum m(...) + d(...)$$
 ---
 
 ### ⚡ 3.15 SMPS Buck / Boost Güç Elektroniği Tasarım Simülatörü (P0)
+
+<div align="center">
+  <img src="docs/images/simulators/smps_tasarimci_koyu.png" alt="SMPS Buck Boost Tasarım Simülatörü" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 Anahtarlamalı güç kaynaklarında minimum endüktans ($L_{min}$), çıkış kapasitörü ($C_{min}$) ve bileşen stres analizi:
 $$L_{min} = \frac{(V_{in}-V_o)D}{\Delta I_L \cdot f_s}, \quad C_{min} = \frac{\Delta I_L}{8 f_s \Delta V_o}$$
 * **Özellikler:** Buck & Boost topolojileri, kritik süreksiz iletim modu (DCM) eşiği, MOSFET/Diyot elektriksel stres değerlendirmesi ve interaktif akım/gerilim dalga formu osiloskobu.
@@ -195,6 +220,11 @@ $$L_{min} = \frac{(V_{in}-V_o)D}{\Delta I_L \cdot f_s}, \quad C_{min} = \frac{\D
 ---
 
 ### 📡 3.16 RF Mikroşerit Hat (Microstrip) Empedansı & 50Ω Sentezi (P1)
+
+<div align="center">
+  <img src="docs/images/simulators/rf_mikroserit_koyu.png" alt="RF Mikroşerit Hat Empedansı ve 50 Ohm Sentezi" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 FR-4, Rogers ve PTFE alt tabakalarda Wheeler & Hammerstad formülleriyle mikrodalga mikroşerit hat hesabı:
 $$Z_0 = \frac{60}{\sqrt{\varepsilon_{eff}}} \ln\left(\frac{8H}{W} + \frac{W}{4H}\right), \quad \varepsilon_{eff} = \frac{\varepsilon_r+1}{2} + \frac{\varepsilon_r-1}{2}\left(1+12\frac{H}{W}\right)^{-0.5}$$
 * **Özellikler:** 50Ω ve 75Ω hedef empedans için tek tıkla otomatik hat genişliği ($W$) sentezi, efektif dielektrik sabiti ($\varepsilon_{eff}$), faz hızı ($v_p$) ve kılavuz dalga boyu ($\lambda_g$).
@@ -202,6 +232,11 @@ $$Z_0 = \frac{60}{\sqrt{\varepsilon_{eff}}} \ln\left(\frac{8H}{W} + \frac{W}{4H}
 ---
 
 ### 🏎️ 3.17 DC Motor & H-Bridge PWM Sürüş Simülasyonu (P1)
+
+<div align="center">
+  <img src="docs/images/simulators/dc_motor_koyu.png" alt="DC Motor H-Bridge PWM Sürüş Simülatörü" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 DC motorun armatür devresi ve mekanik dinamiklerini 4-bölgeli H-Köprüsü ve PWM anahtarlaması altında simüle eder:
 $$V_a = I_a R_a + L_a \frac{dI_a}{dt} + K_e \omega, \quad T_e = K_t I_a = J\frac{d\omega}{dt} + B\omega + T_L$$
 * **Özellikler:** İleri/Geri sürüş, dinamik ve rejeneratif frenleme, PWM görev oranı (%0-100) ayarı, tork-hız eğrisi ve armatür akım tepkisi.

@@ -183,6 +183,9 @@ Mühendislik eğitiminde teori ve pratik arasındaki kopukluğu gidermek amacıy
 
 ## 12. Transformatör Eşdeğer Devre Simülatörü (P0)
 
+![Transformatör Eşdeğer Devre Simülatörü](images/simulators/transformator_esdeger_koyu.png)
+
+
 Elektrik makineleri laboratuvarlarında gerçekleştirilen standart **Boşta Çalışma (OC)** ve **Kısa Devre (SC)** deneylerini modeller:
 * **Girdiler:** $V_{oc}, I_{oc}, P_{oc}$ ve $V_{sc}, I_{sc}, P_{sc}$, anma gücü $S_n$, dönüştürme oranı $a = N_1/N_2$, yükleme yüzdesi ve $\cos\phi$.
 * **Çıktılar:** Nüve direnci $R_c$, mıknatıslanma reaktansı $X_m$, eşdeğer sargı direnci $R_{eq}$, kaçak reaktans $X_{eq}$, demir kayıpları $P_{fe}$, bakır kayıpları $P_{cu}$, tam verim $\eta$ ve gerilim regülasyonu $%VR$.
@@ -202,6 +205,9 @@ Dağıtım şebekelerinde dengesiz tek fazlı yükleri dengelemek ve 3. harmonik
 
 ## 14. Güç Elektroniği DC-DC Dönüştürücü & 3-Kanal Osiloskop (P1)
 
+![DC-DC Dönüştürücü 3-Kanal Osiloskop](images/simulators/dcdc_donusturucu_koyu.png)
+
+
 Anahtarlamalı güç kaynaklarının (SMPS) temel topolojilerini simüle eder:
 * **Topolojiler:** Buck (Düşürücü), Boost (Yükseltici), Buck-Boost.
 * **Kritik Endüktans:** $L_{crit} = \frac{(1-D)R}{2f_s}$ bağıntısıyla devrenin Sürekli İletim Modunda (CCM) mı yoksa Kesintili İletim Modunda (DCM) mı çalıştığı anlık tespit edilir.
@@ -213,6 +219,9 @@ Anahtarlamalı güç kaynaklarının (SMPS) temel topolojilerini simüle eder:
 ---
 
 ## 15. Asenkron Motor Tork-Hız & V/f Sürücü Lab (P1)
+
+![Asenkron Motor Kloss Tork Hız](images/simulators/asenkron_motor_koyu.png)
+
 
 Endüstriyel sürücülerde kullanılan sincap kafesli asenkron motor tork-hız karakteristiği:
 * **Thevenin & Kloss Modellemesi:** Motor eşdeğer devre parametrelerinden devrilme kayması $s_{max}$ ve devrilme torku $T_{max}$ türetilir; Kloss formülüyle tam $0 \le n \le n_s$ tork eğrisi oluşturulur.
@@ -254,6 +263,9 @@ Doğrusal ve zamanla değişmeyen (LTI) sistemlerin çekirdek prensipleri:
 
 
 ## 19. Karnaugh Haritası (K-Map) Çözücü & Mantık Sentezi
+
+![K-Map Çözücü ve Mantık Sentezi](images/simulators/kmap_cozucu_koyu.png)
+
 * **Değişken Seçimi:** 2, 3 veya 4 değişkenli Gray kodlu Karnaugh haritası seçilir.
 * **Hücre Değerleri:** Hücrelere tıklanarak 0, 1 ve Don't Care ($X$) durumları ayarlanır.
 * **Otomatik Gruplama & Çözüm:** Quine-McCluskey algoritması en büyük $2^k$ boyutlu grupları bularak sadeleştirilmiş Çarpımlar Toplamı (SOP) fonksiyonunu üretir.
@@ -261,6 +273,9 @@ Doğrusal ve zamanla değişmeyen (LTI) sistemlerin çekirdek prensipleri:
 ---
 
 ## 20. SMPS Buck / Boost Güç Elektroniği Tasarımcısı
+
+![SMPS Buck Boost Tasarım Simülatörü](images/simulators/smps_tasarimci_koyu.png)
+
 * **Topoloji:** Buck (Düşürücü) veya Boost (Yükseltici) seçimi yapılır.
 * **Tasarım Kriterleri:** $V_{in}, V_o, I_o, f_s$ ve izin verilen dalgalanma oranları girilir.
 * **Kritik Değerler:** $L_{min}, C_{min}$, akım tepe değeri ($I_{pk}$) ve CCM/DCM çalışma rejimi osiloskop ekranında canlı izlenir.
@@ -268,6 +283,9 @@ Doğrusal ve zamanla değişmeyen (LTI) sistemlerin çekirdek prensipleri:
 ---
 
 ## 21. RF Mikroşerit Hat (Microstrip) Empedansı & 50Ω Sentezi
+
+![RF Mikroşerit Hat Empedansı ve 50 Ohm Sentezi](images/simulators/rf_mikroserit_koyu.png)
+
 * **Dielektrik Seçimi:** FR-4 ($\varepsilon_r=4.4$), Rogers RO4003C ($\varepsilon_r=3.55$) veya PTFE ($\varepsilon_r=2.1$) seçilir.
 * **Parametreler:** Yükseklik ($H$), bakır kalınlığı ($T$) ve hat genişliği ($W$) girilir; Wheeler & Hammerstad formülleriyle $Z_0$ hesaplanır.
 * **50Ω Otomatik Sentez:** "50Ω Sentezle" butonuna tıklandığında hedef empedansı veren hat genişliği mikron hassasiyetinde bulunur.
@@ -275,6 +293,9 @@ Doğrusal ve zamanla değişmeyen (LTI) sistemlerin çekirdek prensipleri:
 ---
 
 ## 22. DC Motor & H-Bridge PWM Sürüş Simülasyonu
+
+![DC Motor H-Bridge PWM Sürüş Simülatörü](images/simulators/dc_motor_koyu.png)
+
 * **Çalışma Modları:** İleri, Geri, Fren ve Boşta modları arasında geçiş yapılır.
 * **PWM Sürüşü:** PWM görev oranı kaydırılarak motor devri ($n$), armatür akımı ($I_a$) ve mekanik tork dinamik olarak izlenir.
 * **Rejeneratif Frenleme:** Dış yük torku ve kinetik enerjinin kaynağa geri beslenmesi simüle edilir.
