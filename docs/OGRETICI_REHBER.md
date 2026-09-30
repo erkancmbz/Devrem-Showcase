@@ -195,6 +195,9 @@ Elektrik makineleri laboratuvarlarında gerçekleştirilen standart **Boşta Ça
 
 ## 13. 3-Faz Zikzak (Zn) & Vektör Saat Kadranı (P0)
 
+![3-Faz Zikzak (Zn) Analizörü](images/simulators/zigzag_analizor_koyu.png)
+
+
 Dağıtım şebekelerinde dengesiz tek fazlı yükleri dengelemek ve 3. harmonikleri nötrlemek için kullanılan zikzak sargı analizörü:
 * **Desteklenen Gruplar:** Dyn11, Ynd1, Yzn5, Dzn0, Yy0.
 * **Sargı Faktörü:** $k_w = \frac{\sqrt{3}}{2} \approx 0.866$ faktörü nedeniyle normal yıldız sargıya göre $%15.5$ daha fazla bakır sargı gereksinimi hesaplanır.
@@ -232,6 +235,9 @@ Endüstriyel sürücülerde kullanılan sincap kafesli asenkron motor tork-hız 
 
 ## 16. Güç Sistemleri İletim Hattı, ABCD & Ferranti Etkisi (P1)
 
+![Güç Sistemleri İletim Hattı](images/simulators/iletim_hatti_koyu.png)
+
+
 Yüksek gerilim enerji iletim hatlarında iki kapılı zincir parametreleri ve reaktif güç yönetimi:
 * **Hat Modelleri:** Kısa ($<80$ km), Nominal $\pi$ (80–250 km) ve Nominal T hat modelleri.
 * **Ferranti Olayı:** Yüksüz veya hafif yüklü uzun hatlarda kapasitif şarj akımının hat endüktansında oluşturduğu gerilim yükselmesi ($V_{R,0} = V_S / A > V_S$) hesaplanır.
@@ -251,6 +257,10 @@ Darbe veya basamak gerilimi uygulanan Seri ve Paralel RLC devrelerinin analitik 
 ---
 
 ## 18. Grafiksel Konvolüsyon & Fourier Harmonik Sentezi (P2)
+
+![Grafiksel Konvolüsyon](images/simulators/konvolusyon_koyu.png)
+![Fourier Harmonik Sentezi](images/simulators/fourier_sentez_koyu.png)
+
 
 Doğrusal ve zamanla değişmeyen (LTI) sistemlerin çekirdek prensipleri:
 * **Kayan İntegrasyon:** $y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau$ integrasyonunu canlı animasyonla canlandırır. $x(t)$ sinyali sabit dururken $h(t)$ zaman tersi alınarak ($h(-\tau)$) soldan sağa kaydırılır ve kesişim alanı hesaplanır.

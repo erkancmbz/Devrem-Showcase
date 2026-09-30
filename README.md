@@ -77,6 +77,11 @@ $$R_c = \frac{V_{oc}^2}{P_{oc}}, \quad X_m = \frac{V_{oc}}{I_m}, \quad R_{eq} = 
 ---
 
 ### 🧭 3.2 3-Faz Zikzak (Zn) & Vektör Saat Kadranı Analizörü (P0)
+
+<div align="center">
+  <img src="docs/images/simulators/zigzag_analizor_koyu.png" alt="3-Faz Zikzak (Zn) Analizörü" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 Trafosuz nötr elde etme ve 3. harmonik yok etme amacıyla kullanılan zikzak sargı geometrisini modeller:
 $$V_{zn} = \sqrt{3} \cdot V_{sargı} \cdot \cos(30^\circ), \quad k_w = \frac{\sqrt{3}}{2} \approx 0.866$$
 * **Desteklenen Gruplar:** Dyn11, Ynd1, Yzn5, Dzn0, Yy0 vektör grupları.
@@ -109,6 +114,11 @@ $$T = \frac{2 T_{max}}{\frac{s}{s_{max}} + \frac{s_{max}}{s}}, \quad n_s = \frac
 ---
 
 ### 🗼 3.5 Güç Sistemleri İletim Hattı, ABCD & Ferranti Etkisi (P1)
+
+<div align="center">
+  <img src="docs/images/simulators/iletim_hatti_koyu.png" alt="Güç Sistemleri İletim Hattı Hesaplayıcısı" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 Kısa, Nominal $\pi$ ve Nominal T modelleri üzerinde iki kapılı ABCD zincir matrisi analizi:
 $$\begin{bmatrix} V_S \\ I_S \end{bmatrix} = \begin{bmatrix} A & B \\ C & D \end{bmatrix} \begin{bmatrix} V_R \\ I_R \end{bmatrix}, \quad V_{R,0} = \frac{V_S}{A}$$
 * **Ferranti Etkisi:** Hafif yüklü ve yüksüz hatlarda alıcı uç gerilim yükselmesini ($V_{R,0} > V_S$) gösterir.
@@ -125,6 +135,13 @@ $$\alpha = \frac{R}{2L}, \quad \omega_0 = \frac{1}{\sqrt{LC}}, \quad \zeta = \fr
 ---
 
 ### 🌊 3.7 Grafiksel Konvolüsyon & Fourier Harmonik Sentezi (P2)
+
+<div align="center">
+  <img src="docs/images/simulators/konvolusyon_koyu.png" alt="Grafiksel Konvolüsyon" width="680" style="border-radius: 8px; margin: 12px 0;">
+  <br>
+  <img src="docs/images/simulators/fourier_sentez_koyu.png" alt="Fourier Harmonik Sentezi" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 LTI sistemlerde sinyallerin zaman uzayında kayarak örtüşmesini ve alan integrasyonunu animasyonla sunar:
 $$y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau, \quad x_N(t) = \frac{4}{\pi} \sum_{k=1}^N \frac{\sin((2k-1)\omega_0 t)}{2k-1}$$
 * Oynat, duraklat, zaman kaydırma ve sıfırlama kontrolleri.
