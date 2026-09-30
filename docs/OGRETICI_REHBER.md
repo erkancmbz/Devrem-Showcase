@@ -1,6 +1,6 @@
 # 📚 Devrem Studio - Görsel Öğretici & Modül Kullanım Rehberi
 
-> Bu rehber, **Devrem Studio (EEM Rehber)** platformunda yer alan tüm sanal laboratuvar araçlarının (23 mühendislik aracı), 8 yarıyıl / 240 AKTS Bologna müfredatının, mikrodenetleyici pinout sisteminin ve interaktif simülatörlerin nasıl kullanılacağını adım adım açıklamaktadır.
+> Bu rehber, **Devrem Studio (EEM Rehber)** platformunda yer alan tüm sanal laboratuvar araçlarının (27 mühendislik aracı), 8 yarıyıl / 240 AKTS Bologna müfredatının, mikrodenetleyici pinout sisteminin ve interaktif simülatörlerin nasıl kullanılacağını adım adım açıklamaktadır.
 
 ---
 
@@ -32,7 +32,7 @@ Platform açıldığında sizi karşılayan ana çalışma istasyonu; modern **2
 
 ![Devrem Studio Ana Arayüz](images/overview/devrem_studio_hero.png)
 
-* **Spotlight Arama (`Ctrl + K`):** Saniyeler içinde 23 laboratuvar aracına, sınav sorularına veya formüllere doğrudan odaklanmanızı sağlar.
+* **Spotlight Arama (`Ctrl + K`):** Saniyeler içinde 27 laboratuvar aracına, sınav sorularına veya formüllere doğrudan odaklanmanızı sağlar.
 * **Akıllı Yarıyıl & Track Filtresi:** 8 yarıyıl arasında geçiş ve Güç, RF, Kontrol, Gömülü Sistemler ve Çekirdek Mühendislik uzmanlaşma filtreleri.
 
 ---
@@ -251,3 +251,37 @@ Doğrusal ve zamanla değişmeyen (LTI) sistemlerin çekirdek prensipleri:
 ---
 
 *Devrem Studio - Elektrik-Elektronik Mühendisliği Profesyonel Çalışma İstasyonu*
+
+
+## 19. Karnaugh Haritası (K-Map) Çözücü & Mantık Sentezi
+* **Değişken Seçimi:** 2, 3 veya 4 değişkenli Gray kodlu Karnaugh haritası seçilir.
+* **Hücre Değerleri:** Hücrelere tıklanarak 0, 1 ve Don't Care ($X$) durumları ayarlanır.
+* **Otomatik Gruplama & Çözüm:** Quine-McCluskey algoritması en büyük $2^k$ boyutlu grupları bularak sadeleştirilmiş Çarpımlar Toplamı (SOP) fonksiyonunu üretir.
+
+---
+
+## 20. SMPS Buck / Boost Güç Elektroniği Tasarımcısı
+* **Topoloji:** Buck (Düşürücü) veya Boost (Yükseltici) seçimi yapılır.
+* **Tasarım Kriterleri:** $V_{in}, V_o, I_o, f_s$ ve izin verilen dalgalanma oranları girilir.
+* **Kritik Değerler:** $L_{min}, C_{min}$, akım tepe değeri ($I_{pk}$) ve CCM/DCM çalışma rejimi osiloskop ekranında canlı izlenir.
+
+---
+
+## 21. RF Mikroşerit Hat (Microstrip) Empedansı & 50Ω Sentezi
+* **Dielektrik Seçimi:** FR-4 ($\varepsilon_r=4.4$), Rogers RO4003C ($\varepsilon_r=3.55$) veya PTFE ($\varepsilon_r=2.1$) seçilir.
+* **Parametreler:** Yükseklik ($H$), bakır kalınlığı ($T$) ve hat genişliği ($W$) girilir; Wheeler & Hammerstad formülleriyle $Z_0$ hesaplanır.
+* **50Ω Otomatik Sentez:** "50Ω Sentezle" butonuna tıklandığında hedef empedansı veren hat genişliği mikron hassasiyetinde bulunur.
+
+---
+
+## 22. DC Motor & H-Bridge PWM Sürüş Simülasyonu
+* **Çalışma Modları:** İleri, Geri, Fren ve Boşta modları arasında geçiş yapılır.
+* **PWM Sürüşü:** PWM görev oranı kaydırılarak motor devri ($n$), armatür akımı ($I_a$) ve mekanik tork dinamik olarak izlenir.
+* **Rejeneratif Frenleme:** Dış yük torku ve kinetik enerjinin kaynağa geri beslenmesi simüle edilir.
+
+---
+
+## 23. İnteraktif Eğri Takibi (Snapping), HUD Tooltip & Dokunsal Simülasyon
+* **Eğriye Yapışma (Snapping):** Fare veya parmak kanvas üzerinde hareket ettirildikçe kılcal çizgiler ve hedef noktaları doğrudan en yakın fonksiyona yapışır.
+* **Karanlık Cam HUD:** Anlık zaman, frekans, gerilim, akım, tork ve faz değerleri yüzen bilgi kartında okunur.
+* **Dokunsal Geri Bildirim:** Simüle et butonuna tıklandığında mikro-titreşim ve yükleme animasyonuyla canlı dalga yayılımı devreye girer.

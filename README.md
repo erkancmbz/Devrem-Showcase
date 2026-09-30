@@ -6,7 +6,7 @@
 ---
 
 [![Showcase](https://img.shields.io/badge/Showcase-Official_Architecture_Portfolio-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/erkancmbz/Devrem-Showcase)
-[![Engineering Tools](https://img.shields.io/badge/Laboratory-23_Engineering_Tools-38bdf8?style=for-the-badge&logo=codepen&logoColor=white)](docs/OGRETICI_REHBER.md)
+[![Engineering Tools](https://img.shields.io/badge/Laboratory-27_Engineering_Tools-38bdf8?style=for-the-badge&logo=codepen&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![Bologna Curriculum](https://img.shields.io/badge/Curriculum-8_Semesters_|_240_AKTS-10b981?style=for-the-badge&logo=gitbook&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![Mobile Performance](https://img.shields.io/badge/Mobile-60_FPS_Zero--Overflow-10b981?style=for-the-badge&logo=googlechrome&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![Pure Vanilla Stack](https://img.shields.io/badge/Stack-HTML5_|_CSS3_|_Vanilla_JS-f59e0b?style=for-the-badge&logo=javascript&logoColor=white)](docs/OGRETICI_REHBER.md)
@@ -19,7 +19,7 @@
 <div align="center">
   <img src="docs/images/overview/devrem_studio_hero.png" alt="Devrem Studio Hero Arayüzü" width="920" style="border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
   <br><br>
-  <p><strong>Devrem Studio:</strong> 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı, 23 İnteraktif Mühendislik Aracı ve Donanım Hızlandırmalı Kanvas Simülatörleri</p>
+  <p><strong>Devrem Studio:</strong> 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı, 27 İnteraktif Mühendislik Aracı, Canlı Eğri Takip Mimarisi ve Donanım Hızlandırmalı Kanvas Simülatörleri</p>
   <p>
     <a href="docs/OGRETICI_REHBER.md"><strong>📖 ➔ Resimli Görsel Öğretici & Adım Adım Modül Kullanım Rehberi İçin Tıklayın</strong></a>
   </p>
@@ -60,7 +60,7 @@ Tüm ders kartlarının üzerinde bulunan hızlı başlatma butonu, kullanıcın
 
 ---
 
-## 🔬 3. İnteraktif Mühendislik Simülatörleri (23 Araçlık Laboratuvar)
+## 🔬 3. İnteraktif Mühendislik Simülatörleri (27 Araçlık Laboratuvar)
 
 Platform bünyesinde geliştirilen tüm simülasyon ve analiz araçları **HiDPI Retina uyumlu 2D Canvas Motoru** üzerinde sıfırdan matematiksel algoritmalarla inşa edilmiştir.
 
@@ -177,6 +177,42 @@ $$y(t) = \int_{-\infty}^{\infty} x(\tau)h(t-\tau)d\tau, \quad x_N(t) = \frac{4}{
 
 ---
 
+
+---
+
+### 🧩 3.14 Karnaugh Haritası (K-Map) Çözücü & Mantık Sentezi (P1)
+2, 3 ve 4 değişkenli Gray kodlu Karnaugh matrisinde interaktif hücre toggling ile Quine-McCluskey algoritmasını çalıştırır:
+$$F(A,B,C,D) = \sum m(...) + d(...)$$
+* **Özellikler:** 2, 3 ve 4 değişkenli matris, Don't Care ($X$) desteği, asal çarpanlar (Prime Implicants) ve zorunlu terimler analizi ile en sadeleştirilmiş SOP devresi çıkarımı.
+
+---
+
+### ⚡ 3.15 SMPS Buck / Boost Güç Elektroniği Tasarım Simülatörü (P0)
+Anahtarlamalı güç kaynaklarında minimum endüktans ($L_{min}$), çıkış kapasitörü ($C_{min}$) ve bileşen stres analizi:
+$$L_{min} = \frac{(V_{in}-V_o)D}{\Delta I_L \cdot f_s}, \quad C_{min} = \frac{\Delta I_L}{8 f_s \Delta V_o}$$
+* **Özellikler:** Buck & Boost topolojileri, kritik süreksiz iletim modu (DCM) eşiği, MOSFET/Diyot elektriksel stres değerlendirmesi ve interaktif akım/gerilim dalga formu osiloskobu.
+
+---
+
+### 📡 3.16 RF Mikroşerit Hat (Microstrip) Empedansı & 50Ω Sentezi (P1)
+FR-4, Rogers ve PTFE alt tabakalarda Wheeler & Hammerstad formülleriyle mikrodalga mikroşerit hat hesabı:
+$$Z_0 = \frac{60}{\sqrt{\varepsilon_{eff}}} \ln\left(\frac{8H}{W} + \frac{W}{4H}\right), \quad \varepsilon_{eff} = \frac{\varepsilon_r+1}{2} + \frac{\varepsilon_r-1}{2}\left(1+12\frac{H}{W}\right)^{-0.5}$$
+* **Özellikler:** 50Ω ve 75Ω hedef empedans için tek tıkla otomatik hat genişliği ($W$) sentezi, efektif dielektrik sabiti ($\varepsilon_{eff}$), faz hızı ($v_p$) ve kılavuz dalga boyu ($\lambda_g$).
+
+---
+
+### 🏎️ 3.17 DC Motor & H-Bridge PWM Sürüş Simülasyonu (P1)
+DC motorun armatür devresi ve mekanik dinamiklerini 4-bölgeli H-Köprüsü ve PWM anahtarlaması altında simüle eder:
+$$V_a = I_a R_a + L_a \frac{dI_a}{dt} + K_e \omega, \quad T_e = K_t I_a = J\frac{d\omega}{dt} + B\omega + T_L$$
+* **Özellikler:** İleri/Geri sürüş, dinamik ve rejeneratif frenleme, PWM görev oranı (%0-100) ayarı, tork-hız eğrisi ve armatür akım tepkisi.
+
+---
+
+### 🎯 3.18 Canlı İmleç Snapping, Yüzen HUD Tooltip & Dokunsal Butonlar
+* **Akıllı Eğri Yakalama (Curve Snapping):** Tüm simülasyon grafiklerinde (Bode, SMPS, Motor, Transformatör, Zikzak, DC-DC, İletim Hattı, RLC, Fourier) fare imleci ilgili eğriye otomatik yapışır; kılcal eksenler ve parlayan hedef noktalarıyla anlık polar/kartezyen değerler okunur.
+* **Dokunsal Canlı Sim Butonları:** Simüle et butonuna basıldığında mikro titreşim, yükleme animasyonu (spinner) ve yeşil tik onayı ile dalga yayılımı / osiloskop huzme taraması başlar.
+
+
 ## 📟 4. İnteraktif Mikrodenetleyici Pinout Görüntüleyici
 
 Gömülü sistem geliştiricileri için canlı SVG tabanlı mikrodenetleyici pinout şemaları:
@@ -216,7 +252,7 @@ Devrem Studio, ağır kütüphane bağımlılıklarını reddeden saf web mühen
 │                                │  CSS3 3D Transforms & Glassmorphism   │
 ├────────────────────────────────┼───────────────────────────────────────┤
 │  Grafik & Simülasyon Motoru    │  Pure HTML5 Canvas 2D (Retina HiDPI)  │
-│  (23 Mühendislik Aracı)        │  Mathematical Real-Time Plotters      │
+│  (27 Mühendislik Aracı)        │  Mathematical Real-Time Plotters      │
 ├────────────────────────────────┼───────────────────────────────────────┤
 │  Müfredat & Akademik Motor     │  8 Yarıyıl / 240 AKTS Bologna Modeli  │
 │                                │  4 Uzmanlaşma Pisti & Deep-Link Köprü │
