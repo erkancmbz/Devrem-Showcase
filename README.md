@@ -6,7 +6,8 @@
 ---
 
 [![Showcase](https://img.shields.io/badge/Showcase-Official_Architecture_Portfolio-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/erkancmbz/Devrem-Showcase)
-[![Engineering Tools](https://img.shields.io/badge/Laboratory-27_Engineering_Tools-38bdf8?style=for-the-badge&logo=codepen&logoColor=white)](docs/OGRETICI_REHBER.md)
+[![Engineering Tools](https://img.shields.io/badge/Laboratory-38_Engineering_Simulators-38bdf8?style=for-the-badge&logo=codepen&logoColor=white)](docs/OGRETICI_REHBER.md)
+[![Dual Portal](https://img.shields.io/badge/Architecture-Dual_Portal_System-a855f7?style=for-the-badge&logo=buffer&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![Bologna Curriculum](https://img.shields.io/badge/Curriculum-8_Semesters_|_240_AKTS-10b981?style=for-the-badge&logo=gitbook&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![Mobile Performance](https://img.shields.io/badge/Mobile-60_FPS_Zero--Overflow-10b981?style=for-the-badge&logo=googlechrome&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![Pure Vanilla Stack](https://img.shields.io/badge/Stack-HTML5_|_CSS3_|_Vanilla_JS-f59e0b?style=for-the-badge&logo=javascript&logoColor=white)](docs/OGRETICI_REHBER.md)
@@ -19,7 +20,7 @@
 <div align="center">
   <img src="docs/images/overview/devrem_studio_hero.png" alt="Devrem Studio Hero Arayüzü" width="920" style="border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
   <br><br>
-  <p><strong>Devrem Studio:</strong> 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı, 27 İnteraktif Mühendislik Aracı, Canlı Eğri Takip Mimarisi ve Donanım Hızlandırmalı Kanvas Simülatörleri</p>
+  <p><strong>Devrem Studio:</strong> 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı, 38 İnteraktif Mühendislik Simülatörü, 2-Portal Hibrit Mimari (Akademi & Kariyer Hub), Canlı Eğri Takip Mimarisi ve Donanım Hızlandırmalı Kanvas Simülatörleri</p>
   <p>
     <a href="docs/OGRETICI_REHBER.md"><strong>📖 ➔ Resimli Görsel Öğretici & Adım Adım Modül Kullanım Rehberi İçin Tıklayın</strong></a>
   </p>
