@@ -18,12 +18,23 @@
 ---
 
 <div align="center">
-  <img src="docs/images/overview/devrem_studio_hero.png" alt="Devrem Studio Hero Arayüzü" width="920" style="border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
+  <img src="docs/images/overview/portal_secim_kapisi.png" alt="Devrem 2.0 Portal Seçim Kapısı" width="920" style="border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
   <br><br>
-  <p><strong>Devrem Studio v4.0:</strong> 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı, 38+ İnteraktif Mühendislik Simülatörü &amp; Aracı, 100vh Çift Portallı Giriş Kapısı (Akademi &amp; Kariyer Hub), Göz Dostu Mat Seramik/Slate Gündüz Modu, PWA v9 Tam Çevrimdışı Çalışma ve Donanım Hızlandırmalı Kanvas Simülatörleri</p>
+  <p><strong>Devrem Studio v4.0:</strong> 100vh Çift Portallı Giriş Kapısı (Akademi &amp; Kariyer Hub), 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı, 38+ İnteraktif Mühendislik Simülatörü &amp; Aracı, Göz Dostu Mat Seramik/Slate Gündüz Modu, PWA v9 Tam Çevrimdışı Çalışma ve Donanım Hızlandırmalı Kanvas Simülatörleri</p>
   <p>
     <a href="docs/OGRETICI_REHBER.md"><strong>📖 ➔ Resimli Görsel Öğretici & Adım Adım Modül Kullanım Rehberi İçin Tıklayın</strong></a>
   </p>
+</div>
+
+<div align="center" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin:16px 0;">
+  <div>
+    <h4 align="center">🎓 1. PORTAL: DEVREM AKADEMİ & LAB</h4>
+    <img src="docs/images/overview/portal_akademi_hero.png" alt="Devrem Akademi Portalı & 38 Simülatör" width="440" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+  </div>
+  <div>
+    <h4 align="center">💼 2. PORTAL: DEVREM KARİYER & TOPLULUK</h4>
+    <img src="docs/images/overview/portal_kariyer_hero.png" alt="Devrem Kariyer Portalı & Canlı İlanlar" width="440" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+  </div>
 </div>
 
 ---
@@ -80,7 +91,7 @@ Platform bünyesinde geliştirilen tüm simülasyon ve analiz araçları **HiDPI
 ### ⚡ 3.1 Transformatör Eşdeğer Devre & Boşta/Kısa Devre Testi (P0)
 
 <div align="center">
-  <img src="docs/images/simulators/transformator_esdeger_koyu.png" alt="Transformatör Fazör ve Eşdeğer Devre Simülatörü" width="680" style="border-radius: 8px; margin: 12px 0;">
+  <img src="docs/images/simulators/transformator_guc_donusum_koyu.png" alt="Transformatör & Güç Dönüşüm Laboratuvarı" width="720" style="border-radius: 8px; margin: 12px 0;">
 </div>
 
 Boşta çalışma ($V_{oc}, I_{oc}, P_{oc}$) ve kısa devre ($V_{sc}, I_{sc}, P_{sc}$) deney verilerini işleyerek demir nüve ve sargı empedanslarını hesaplar:
