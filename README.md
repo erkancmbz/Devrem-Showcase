@@ -39,6 +39,13 @@ Elektrik-Elektronik Mühendisliği (EEM) teknik açıdan dünyanın en yoğun ve
 ### 🎯 Çözüm: Devrem Studio
 **Devrem Studio**, herhangi bir kurulum veya bağımlılık gerektirmeksizin (`npm install` bile yok!), sadece tarayıcıyı açarak **cep telefonunda, tablette veya bilgisayarda** çalışan, EEM öğrencisinin 1. sınıftan mezuniyetine (ve ilk işine) kadar ihtiyaç duyacağı tüm hesaplayıcıları, simülatörleri, formülleri ve kariyer araçlarını tek bir modern çatı altında toplamaktadır.
 
+### 🚪 1.1 Çift Portallı Giriş Kapısı (100vh Dual Portal Gate)
+
+<div align="center">
+  <img src="docs/images/overview/portal_secim_kapisi.png" alt="Devrem 2.0 Portal Seçim Kapısı" width="840" style="border-radius: 12px; margin: 16px 0; box-shadow: 0 16px 40px rgba(0,0,0,0.5);">
+  <p><em>Kullanıcıyı karşılayan 100vh interaktif seçim kapısı: Solda "Devrem Akademi & Lab" (38+ Simülatör & Dersler), sağda "Devrem Kariyer & Topluluk" (Staj & İş İlanları, Mühendis Ağı, Otomatik CV).</em></p>
+</div>
+
 ---
 
 ## 🎓 2. 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı & Akıllı Köprü
@@ -268,6 +275,11 @@ $$V_a = I_a R_a + L_a \frac{dI_a}{dt} + K_e \omega, \quad T_e = K_t I_a = J\frac
 ---
 
 ### 💡 3.19 Diyot & Zener Karakteristik Laboratuvarı (P0)
+
+<div align="center">
+  <img src="docs/images/simulators/diyot_zener_koyu.png" alt="Diyot & Zener Karakteristik Laboratuvarı" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 Shockley diyot denklemi, ters doyma akımı ($I_s$), termal gerilim ($V_t \approx 26\text{ mV}$) ve Zener çığ kırılması modellerini tek gövdede simüle eder:
 $$I_D = I_s \left( e^{\frac{V_D}{n V_t}} - 1 \right) - I_{z,leak} - \frac{\max(0, -V_D - V_z)}{R_z}$$
 * **Özellikler:** Silikon (Si), Germanyum (Ge), Schottky ve Zener diyot kütüphanesi; sıcaklık katsayısı ($\approx -2\text{ mV/}^\circ\text{C}$), dinamik direnç ($r_d = \Delta V / \Delta I$) ve ters toparlanma süresi ($t_{rr}$) HUD paneli.
@@ -275,6 +287,11 @@ $$I_D = I_s \left( e^{\frac{V_D}{n V_t}} - 1 \right) - I_{z,leak} - \frac{\max(0
 ---
 
 ### 🎯 3.20 DSP Z-Düzlemi (Z-Plane) Kutup-Sıfır Analizörü (P0)
+
+<div align="center">
+  <img src="docs/images/simulators/dsp_zplane_koyu.png" alt="DSP Z-Düzlemi Kutup-Sıfır Analizörü" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 Ayrık zamanlı sayısal sinyal işleme (DSP) filtrelerinin kararlılık ve frekans yanıtını birim çember $|z|=1$ üzerinde canlı analiz eder:
 $$H(z) = \frac{\sum_{k=0}^M b_k z^{-k}}{1 + \sum_{k=1}^N a_k z^{-k}} = K \frac{\prod_{i=1}^M (z - q_i)}{\prod_{j=1}^N (z - p_j)}$$
 * **Özellikler:** İnteraktif kanvas üzerinde kutup (X) ve sıfır (O) sürükleme; birim çember dışına taşan kutuplarda anlık kararsızlık (unstable) uyarısı; canlı frekans genlik tepkisi $|H(e^{j\omega})|$ ve faz spektrumu.
@@ -282,6 +299,11 @@ $$H(z) = \frac{\sum_{k=0}^M b_k z^{-k}}{1 + \sum_{k=1}^N a_k z^{-k}} = K \frac{\
 ---
 
 ### ☀️ 3.21 Güneş Paneli (PV) & MPPT Tepe Güç Takip Simülatörü (P0)
+
+<div align="center">
+  <img src="docs/images/simulators/solar_mppt_koyu.png" alt="Güneş Paneli PV ve MPPT Güç Takip Simülatörü" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 Fotovoltaik hücrelerin tek diyotlu eşdeğer modelini, güneş ışınımı ($G$, W/m²) ve panel sıcaklığı ($T$, °C) altında simüle eder:
 $$I = I_{ph} - I_0 \left[ \exp\left(\frac{q(V + I R_s)}{n k T}\right) - 1 \right] - \frac{V + I R_s}{R_{sh}}$$
 * **Özellikler:** Canlı $I-V$ ve $P-V$ karakteristik eğrileri; P&O (Perturb & Observe) Maksimum Güç Noktası Takibi (MPPT) algoritması; $P_{max}, V_{mpp}, I_{mpp}$ ve panel elektriksel verim hesaplayıcısı.
@@ -289,6 +311,11 @@ $$I = I_{ph} - I_0 \left[ \exp\left(\frac{q(V + I R_s)}{n k T}\right) - 1 \right
 ---
 
 ### 💻 3.22 Seri Protokol Analizörü & Mantık Sinyal Üreticisi (P1)
+
+<div align="center">
+  <img src="docs/images/simulators/protokol_analizor_koyu.png" alt="Seri Protokol Analizörü ve Mantık Sinyal Üreticisi" width="680" style="border-radius: 8px; margin: 12px 0;">
+</div>
+
 Gömülü sistemler için endüstri standardı seri haberleşme protokollerini gerçek zamanlı dijital osiloskop ekranında çözer:
 * **Desteklenen Protokoller:** UART (Baud, Start, 8-Bit Data, Parity, Stop), I2C (Start, 7-Bit Adres, R/W, ACK/NACK, Data, Stop), SPI (CPOL/CPHA modları, CS, MOSI, MISO, SCK), CAN Bus (SOF, 11-Bit ID, RTR, DLC, Data, CRC, ACK).
 * **Özellikler:** Girilen ASCII metin veya HEX veriyi paket formatına dönüştürme, bit süreleri ($T_{bit}$), baud hata oranı ve canlı lojik dalga formu çizimi.

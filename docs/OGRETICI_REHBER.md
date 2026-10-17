@@ -37,7 +37,11 @@
 
 ## 1. Ana Arayüz & Genel Bakış
 
-Platform açıldığında sizi karşılayan ana çalışma istasyonu; modern **2026 Obsidian Gece Teması** ve **Göz Dostu Mat Seramik Gündüz Teması** seçenekleri, `Ctrl + K` hızlı arama çubuğu ve procedurally-generated (algoritmik çizilen) interaktif PCB arka planı ile donatılmıştır.
+Platform açıldığında kullanıcıyı **100vh Çift Portal Giriş Kapısı** karşılar. Burada "Devrem Akademi & Lab" veya "Devrem Kariyer & Topluluk" alanlarından birine tek tıkla doğrudan geçiş yapılır:
+
+![Devrem 2.0 Portal Seçim Kapısı](images/overview/portal_secim_kapisi.png)
+
+Çalışma istasyonu ayrıca modern **2026 Obsidian Gece Teması** ve **Göz Dostu Mat Seramik Gündüz Teması** seçenekleri, `Ctrl + K` hızlı arama çubuğu ve procedurally-generated (algoritmik çizilen) interaktif PCB arka planı ile donatılmıştır:
 
 ![Devrem Studio Ana Arayüz](images/overview/devrem_studio_hero.png)
 
@@ -329,25 +333,38 @@ Doğrusal ve zamanla değişmeyen (LTI) sistemlerin çekirdek prensipleri:
 ---
 
 ## 24. Diyot & Zener Karakteristik Laboratuvarı
+
+![Diyot ve Zener Karakteristik Laboratuvarı](images/simulators/diyot_zener_koyu.png)
+
 * **Shockley & Kırılma:** İleri yön iletim eşiği ($V_\gamma \approx 0.7\text{ V}$ Si, $0.3\text{ V}$ Ge) ve ters yön Zener kırılma gerilimi ($V_z$) canlı I-V ekseninde çizilir.
 * **Sıcaklık Analizi:** Sıcaklık değişimiyle ters doyma akımındaki eksponansiyel artış ve dinamik direnç $r_d$ değerleri canlı izlenir.
 
 ---
 
 ## 25. DSP Z-Düzlemi Kutup-Sıfır Analizörü
+
+![DSP Z-Düzlemi Kutup-Sıfır Analizörü](images/simulators/dsp_zplane_koyu.png)
+
 * **Birim Çember Kararlılık:** Kutup ve sıfırların konumu karmaşık $z$-düzleminde fareyle serbestçe sürüklenir; kutup birim çember $|z|=1$ dışına çıktığında sistem kararsız (unstable) olarak işaretlenir.
 * **Frekans Genlik & Faz Tepkisi:** Ayrık zamanlı sistemin frekans cevabı $|H(e^{j\omega})|$ eşzamanlı olarak hesaplanır ve çizilir.
 
 ---
 
 ## 26. Güneş Paneli (PV) & MPPT Tepe Güç Takip Simülatörü
+
+![Güneş Paneli PV MPPT Güç Takip Simülatörü](images/simulators/solar_mppt_koyu.png)
+
 * **Tek Diyotlu Fotovoltaik Model:** Güneş ışınımı (W/m²) ve panel sıcaklığı (°C) değiştirilerek I-V ve P-V eğrileri simüle edilir.
 * **P&O Algoritması:** Perturb & Observe MPPT kontrolcüsü tepe güç noktasını ($P_{max}, V_{mpp}, I_{mpp}$) adım adım yakalar.
 
 ---
 
 ## 27. Seri Protokol Analizörü & Yeni Nesil Hesaplayıcılar
+
+![Seri Protokol Analizörü](images/simulators/protokol_analizor_koyu.png)
+
 * **Seri Protokoller:** UART, I2C, SPI ve CAN bus için zamanlama diyagramı, start/stop/ack bitleri ve veri çözümlemesi yapılır.
 * **Pil Deşarjı (Peukert):** Çekilen akıma bağlı olarak deşarj süresi ve net Wh kapasite kaybı hesaplanır.
 * **Termal Soğutucu:** Yarı iletken jonksiyon ısısını güvenli sınırda tutacak soğutucu ısıl direnci $\theta_{sa}$ ve montaj parametreleri çıkarılır.
+
 
