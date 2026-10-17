@@ -6,13 +6,13 @@
 ---
 
 [![Showcase](https://img.shields.io/badge/Showcase-Official_Architecture_Portfolio-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/erkancmbz/Devrem-Showcase)
-[![Engineering Tools](https://img.shields.io/badge/Laboratory-38_Engineering_Simulators-38bdf8?style=for-the-badge&logo=codepen&logoColor=white)](docs/OGRETICI_REHBER.md)
-[![Dual Portal](https://img.shields.io/badge/Architecture-Dual_Portal_System-a855f7?style=for-the-badge&logo=buffer&logoColor=white)](docs/OGRETICI_REHBER.md)
+[![Engineering Tools](https://img.shields.io/badge/Laboratory-38+_Engineering_Simulators-38bdf8?style=for-the-badge&logo=codepen&logoColor=white)](docs/OGRETICI_REHBER.md)
+[![Dual Portal](https://img.shields.io/badge/Architecture-100vh_Dual_Portal_Gate-a855f7?style=for-the-badge&logo=buffer&logoColor=white)](docs/OGRETICI_REHBER.md)
+[![Light Theme](https://img.shields.io/badge/Theme-Eye--Comfort_Matte_Ceramic-10b981?style=for-the-badge&logo=slack&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![Bologna Curriculum](https://img.shields.io/badge/Curriculum-8_Semesters_|_240_AKTS-10b981?style=for-the-badge&logo=gitbook&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![Mobile Performance](https://img.shields.io/badge/Mobile-60_FPS_Zero--Overflow-10b981?style=for-the-badge&logo=googlechrome&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![Pure Vanilla Stack](https://img.shields.io/badge/Stack-HTML5_|_CSS3_|_Vanilla_JS-f59e0b?style=for-the-badge&logo=javascript&logoColor=white)](docs/OGRETICI_REHBER.md)
-[![Math Engine](https://img.shields.io/badge/Formulas-KaTeX_LaTeX_Engine-0284c7?style=for-the-badge&logo=latex&logoColor=white)](https://katex.org)
-[![Audio Simulation](https://img.shields.io/badge/Oscilloscope-Web_Audio_API-a855f7?style=for-the-badge)](docs/OGRETICI_REHBER.md)
+[![Offline First](https://img.shields.io/badge/PWA-Service_Worker_v9_Offline-6366f1?style=for-the-badge&logo=pwa&logoColor=white)](docs/OGRETICI_REHBER.md)
 [![License: Non-Commercial](https://img.shields.io/badge/License-Non--Commercial_|_Gayri_Ticari-dc2626?style=for-the-badge)](LICENSE)
 
 ---
@@ -20,7 +20,7 @@
 <div align="center">
   <img src="docs/images/overview/devrem_studio_hero.png" alt="Devrem Studio Hero Arayüzü" width="920" style="border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.6);">
   <br><br>
-  <p><strong>Devrem Studio:</strong> 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı, 38 İnteraktif Mühendislik Simülatörü, 2-Portal Hibrit Mimari (Akademi & Kariyer Hub), Canlı Eğri Takip Mimarisi ve Donanım Hızlandırmalı Kanvas Simülatörleri</p>
+  <p><strong>Devrem Studio v4.0:</strong> 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı, 38+ İnteraktif Mühendislik Simülatörü &amp; Aracı, 100vh Çift Portallı Giriş Kapısı (Akademi &amp; Kariyer Hub), Göz Dostu Mat Seramik/Slate Gündüz Modu, PWA v9 Tam Çevrimdışı Çalışma ve Donanım Hızlandırmalı Kanvas Simülatörleri</p>
   <p>
     <a href="docs/OGRETICI_REHBER.md"><strong>📖 ➔ Resimli Görsel Öğretici & Adım Adım Modül Kullanım Rehberi İçin Tıklayın</strong></a>
   </p>
@@ -61,7 +61,7 @@ Tüm ders kartlarının üzerinde bulunan hızlı başlatma butonu, kullanıcın
 
 ---
 
-## 🔬 3. İnteraktif Mühendislik Simülatörleri (27 Araçlık Laboratuvar)
+## 🔬 3. İnteraktif Mühendislik Simülatörleri (38+ Araçlık Laboratuvar)
 
 Platform bünyesinde geliştirilen tüm simülasyon ve analiz araçları **HiDPI Retina uyumlu 2D Canvas Motoru** üzerinde sıfırdan matematiksel algoritmalarla inşa edilmiştir.
 
@@ -262,8 +262,44 @@ $$V_a = I_a R_a + L_a \frac{dI_a}{dt} + K_e \omega, \quad T_e = K_t I_a = J\frac
 ---
 
 ### 🎯 3.18 Canlı İmleç Snapping, Yüzen HUD Tooltip & Dokunsal Butonlar
-* **Akıllı Eğri Yakalama (Curve Snapping):** Tüm simülasyon grafiklerinde (Bode, SMPS, Motor, Transformatör, Zikzak, DC-DC, İletim Hattı, RLC, Fourier) fare imleci ilgili eğriye otomatik yapışır; kılcal eksenler ve parlayan hedef noktalarıyla anlık polar/kartezyen değerler okunur.
+* **Akıllı Eğri Yakalama (Curve Snapping):** Tüm simülasyon grafiklerinde (Bode, SMPS, Motor, Transformatör, Zikzak, DC-DC, İletim Hattı, RLC, Fourier, Diyot, PV) fare imleci ilgili eğriye otomatik yapışır; kılcal eksenler ve parlayan hedef noktalarıyla anlık polar/kartezyen değerler okunur.
 * **Dokunsal Canlı Sim Butonları:** Simüle et butonuna basıldığında mikro titreşim, yükleme animasyonu (spinner) ve yeşil tik onayı ile dalga yayılımı / osiloskop huzme taraması başlar.
+
+---
+
+### 💡 3.19 Diyot & Zener Karakteristik Laboratuvarı (P0)
+Shockley diyot denklemi, ters doyma akımı ($I_s$), termal gerilim ($V_t \approx 26\text{ mV}$) ve Zener çığ kırılması modellerini tek gövdede simüle eder:
+$$I_D = I_s \left( e^{\frac{V_D}{n V_t}} - 1 \right) - I_{z,leak} - \frac{\max(0, -V_D - V_z)}{R_z}$$
+* **Özellikler:** Silikon (Si), Germanyum (Ge), Schottky ve Zener diyot kütüphanesi; sıcaklık katsayısı ($\approx -2\text{ mV/}^\circ\text{C}$), dinamik direnç ($r_d = \Delta V / \Delta I$) ve ters toparlanma süresi ($t_{rr}$) HUD paneli.
+
+---
+
+### 🎯 3.20 DSP Z-Düzlemi (Z-Plane) Kutup-Sıfır Analizörü (P0)
+Ayrık zamanlı sayısal sinyal işleme (DSP) filtrelerinin kararlılık ve frekans yanıtını birim çember $|z|=1$ üzerinde canlı analiz eder:
+$$H(z) = \frac{\sum_{k=0}^M b_k z^{-k}}{1 + \sum_{k=1}^N a_k z^{-k}} = K \frac{\prod_{i=1}^M (z - q_i)}{\prod_{j=1}^N (z - p_j)}$$
+* **Özellikler:** İnteraktif kanvas üzerinde kutup (X) ve sıfır (O) sürükleme; birim çember dışına taşan kutuplarda anlık kararsızlık (unstable) uyarısı; canlı frekans genlik tepkisi $|H(e^{j\omega})|$ ve faz spektrumu.
+
+---
+
+### ☀️ 3.21 Güneş Paneli (PV) & MPPT Tepe Güç Takip Simülatörü (P0)
+Fotovoltaik hücrelerin tek diyotlu eşdeğer modelini, güneş ışınımı ($G$, W/m²) ve panel sıcaklığı ($T$, °C) altında simüle eder:
+$$I = I_{ph} - I_0 \left[ \exp\left(\frac{q(V + I R_s)}{n k T}\right) - 1 \right] - \frac{V + I R_s}{R_{sh}}$$
+* **Özellikler:** Canlı $I-V$ ve $P-V$ karakteristik eğrileri; P&O (Perturb & Observe) Maksimum Güç Noktası Takibi (MPPT) algoritması; $P_{max}, V_{mpp}, I_{mpp}$ ve panel elektriksel verim hesaplayıcısı.
+
+---
+
+### 💻 3.22 Seri Protokol Analizörü & Mantık Sinyal Üreticisi (P1)
+Gömülü sistemler için endüstri standardı seri haberleşme protokollerini gerçek zamanlı dijital osiloskop ekranında çözer:
+* **Desteklenen Protokoller:** UART (Baud, Start, 8-Bit Data, Parity, Stop), I2C (Start, 7-Bit Adres, R/W, ACK/NACK, Data, Stop), SPI (CPOL/CPHA modları, CS, MOSI, MISO, SCK), CAN Bus (SOF, 11-Bit ID, RTR, DLC, Data, CRC, ACK).
+* **Özellikler:** Girilen ASCII metin veya HEX veriyi paket formatına dönüştürme, bit süreleri ($T_{bit}$), baud hata oranı ve canlı lojik dalga formu çizimi.
+
+---
+
+### 🔋 3.23 Yeni Nesil Mühendislik Hesaplayıcıları (P1)
+* **Pil Deşarj Ömrü (Peukert Kanunu):** $t = H \left(\frac{C}{I \cdot H}\right)^k$ formülü ile deşarj akımı ($I$), batarya kapasitesi ($C$, mAh) ve Peukert katsayısı ($k$) üzerinden gerçek çalışma süresi ve tüketilen enerji (Wh) hesabı.
+* **Termal Soğutucu Isıl Direnç Hesabı:** $\theta_{sa} = \frac{T_j - T_a}{P_d} - (\theta_{jc} + \theta_{cs})$ termal direnç zinciri üzerinden yarı iletken kılıf sıcaklığı ($T_c$), jonksiyon sıcaklığı ($T_j$) ve gerekli alüminyum soğutucu yüzey alanı hesabı.
+
+---
 
 
 ## 📟 4. İnteraktif Mikrodenetleyici Pinout Görüntüleyici
@@ -301,11 +337,14 @@ Devrem Studio, ağır kütüphane bağımlılıklarını reddeden saf web mühen
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        DEVREM STUDIO MİMARİSİ                          │
 ├────────────────────────────────┬───────────────────────────────────────┤
-│  Arayüz & Tasarım Sistemi      │  Obsidian 2026 Dark & Pastel Light    │
-│                                │  CSS3 3D Transforms & Glassmorphism   │
+│  Giriş Kapısı (Dual Portal)    │  100vh Hero Akademi & Kariyer Hub     │
+│                                │  İki Büyük Portal Paneli & Hızlı Geçiş│
+├────────────────────────────────┼───────────────────────────────────────┤
+│  Arayüz & Tasarım Sistemi      │  Obsidian 2026 Dark & Mat Seramik Açık│
+│                                │  24px Kavisli Kartlar & Difüze Glow   │
 ├────────────────────────────────┼───────────────────────────────────────┤
 │  Grafik & Simülasyon Motoru    │  Pure HTML5 Canvas 2D (Retina HiDPI)  │
-│  (27 Mühendislik Aracı)        │  Mathematical Real-Time Plotters      │
+│  (38+ Mühendislik Aracı)       │  Mathematical Real-Time Plotters      │
 ├────────────────────────────────┼───────────────────────────────────────┤
 │  Müfredat & Akademik Motor     │  8 Yarıyıl / 240 AKTS Bologna Modeli  │
 │                                │  4 Uzmanlaşma Pisti & Deep-Link Köprü │
@@ -313,11 +352,12 @@ Devrem Studio, ağır kütüphane bağımlılıklarını reddeden saf web mühen
 │  Mobil Performans Motoru       │  IntersectionObserver API (0-Reflow)  │
 │                                │  requestAnimationFrame 60 FPS Throttle│
 ├────────────────────────────────┼───────────────────────────────────────┤
+│  PWA & Çevrimdışı Çalışma     │  Service Worker v9 Offline Caching    │
+│                                │  38+ Simülatör Dosyası Yerel Bellekte │
+├────────────────────────────────┼───────────────────────────────────────┤
 │  Ses & Frekans Simülasyonu     │  Web Audio API (Hardware Synthesis)   │
 ├────────────────────────────────┼───────────────────────────────────────┤
 │  Matematik & LaTeX Motoru      │  KaTeX High-Performance Math Engine   │
-├────────────────────────────────┼───────────────────────────────────────┤
-│  Veri & Durum Yönetimi         │  Offline-First LocalStorage System    │
 └────────────────────────────────┴───────────────────────────────────────┘
 ```
 
@@ -325,6 +365,7 @@ Devrem Studio, ağır kütüphane bağımlılıklarını reddeden saf web mühen
 - **Sıfır Yatay Taşma (0 Horizontal Overflow):** 360px, 375px, 390px, 412px, 430px ekranlarda `scrollWidth === innerWidth` garantisi.
 - **Donanım Hızlandırma:** Dokunmatik ekranlarda gereksiz fare dinleyicileri pasifleştirilmiş, ağır blur katmanları optimize edilerek mobil işlemci ve pil tüketimi minimize edilmiştir.
 - **Tam Ekran Mobil Shell:** Laboratuvar pencereleri mobilde native bir akıllı telefon uygulaması (`100vw / 100vh`) gibi açılır.
+- **Göz Dostu Gündüz Modu (Eye-Comfort Light Theme):** Parlak beyaz yerine sakinleştirici mat seramik zemin (`#f8fafc`), okunaklı koyu arduvaz metin (`#1e293b`) ve difüze edilmiş yumuşak ortam aydınlatması ile uzun süreli ders çalışma konforu.
 
 ---
 
