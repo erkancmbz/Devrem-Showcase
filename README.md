@@ -46,6 +46,11 @@ Elektrik-Elektronik Mühendisliği (EEM) teknik açıdan dünyanın en yoğun ve
   <p><em>Kullanıcıyı karşılayan 100vh interaktif seçim kapısı: Solda "Devrem Akademi & Lab" (38+ Simülatör & Dersler), sağda "Devrem Kariyer & Topluluk" (Staj & İş İlanları, Mühendis Ağı, Otomatik CV).</em></p>
 </div>
 
+<div align="center" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin:16px 0;">
+  <img src="docs/images/overview/portal_kariyer_hero.png" alt="Devrem Kariyer Portalı" width="420" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+  <img src="docs/images/overview/kariyer_cv_builder.png" alt="Devrem Mühendis Ağı & CV Oluşturucu" width="420" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+</div>
+
 ---
 
 ## 🎓 2. 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı & Akıllı Köprü
