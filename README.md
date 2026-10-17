@@ -58,8 +58,8 @@ Elektrik-Elektronik Mühendisliği (EEM) teknik açıdan dünyanın en yoğun ve
 </div>
 
 <div align="center" style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin:16px 0;">
-  <img src="docs/images/overview/portal_kariyer_hero.png" alt="Devrem Kariyer Portalı" width="420" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-  <img src="docs/images/overview/kariyer_cv_builder.png" alt="Devrem Mühendis Ağı & CV Oluşturucu" width="420" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+  <img src="docs/images/overview/portal_kariyer_hero.png" alt="Devrem Kariyer Portalı" width="430" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+  <img src="docs/images/overview/portal_kariyer_cv_builder.png" alt="Devrem Mühendis Ağı & CV Oluşturucu" width="430" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
 </div>
 
 ---
@@ -91,7 +91,7 @@ Platform bünyesinde geliştirilen tüm simülasyon ve analiz araçları **HiDPI
 ### ⚡ 3.1 Transformatör Eşdeğer Devre & Boşta/Kısa Devre Testi (P0)
 
 <div align="center">
-  <img src="docs/images/simulators/transformator_guc_donusum_koyu.png" alt="Transformatör & Güç Dönüşüm Laboratuvarı" width="720" style="border-radius: 8px; margin: 12px 0;">
+  <img src="docs/images/simulators/transformator_guc_donusum_koyu.png" alt="Transformatör & Güç Dönüşüm Laboratuvarı" width="460" style="border-radius: 8px; margin: 12px 0;">
 </div>
 
 Boşta çalışma ($V_{oc}, I_{oc}, P_{oc}$) ve kısa devre ($V_{sc}, I_{sc}, P_{sc}$) deney verilerini işleyerek demir nüve ve sargı empedanslarını hesaplar:
