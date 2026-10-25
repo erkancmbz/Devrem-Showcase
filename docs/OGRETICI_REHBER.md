@@ -1,6 +1,9 @@
 # 📚 Devrem Studio - Görsel Öğretici & Modül Kullanım Rehberi
 
-> Bu rehber, **Devrem Studio (EEM Rehber)** platformunda yer alan tüm sanal laboratuvar araçlarının (38+ mühendislik aracı), 8 yarıyıl / 240 AKTS Bologna müfredatının, mikrodenetleyici pinout sisteminin ve interaktif simülatörlerin nasıl kullanılacağını adım adım açıklamaktadır.
+> 📥 **PDF İndir:** Bu rehberi tüm görselleri, şemaları ve renkli devre grafikleriyle birlikte tam sayfa PDF kitapçığı olarak indirmek için:  
+> 👉 [Devrem_Ogretici_Rehber.pdf (12.9 MB)](../Devrem_Ogretici_Rehber.pdf) veya [docs/OGRETICI_REHBER.pdf](OGRETICI_REHBER.pdf)
+
+> Bu rehber, **Devrem Studio (EEM Rehber)** platformunda yer alan tüm sanal laboratuvar araçlarının (27 mühendislik aracı), 8 yarıyıl / 240 AKTS Bologna müfredatının, mikrodenetleyici pinout sisteminin ve interaktif simülatörlerin nasıl kullanılacağını adım adım açıklamaktadır.
 
 ---
 
@@ -23,29 +26,22 @@
 16. [Güç Sistemleri İletim Hattı, ABCD & Ferranti Etkisi (P1)](#16-güç-sistemleri-iletim-hattı-abcd--ferranti-etkisi-p1)
 17. [RLC Geçici Rejim (Transient) Basamak Yanıtı (P2)](#17-rlc-geçici-rejim-transient-basamak-yanıtı-p2)
 18. [Grafiksel Konvolüsyon & Fourier Harmonik Sentezi (P2)](#18-grafiksel-konvolüsyon--fourier-harmonik-sentezi-p2)
-19. [Karnaugh Haritası (K-Map) Çözücü & Mantık Sentezi](#19-karnaugh-haritası-k-map-çözücü--mantık-sentezi)
-20. [SMPS Buck / Boost Güç Elektroniği Tasarımcısı](#20-smps-buck--boost-güç-elektroniği-tasarımcısı)
+19. [K-Map Mantık Sentezi & Karnaugh Haritası](#19-k-map-mantık-sentezi--karnaugh-haritası)
+20. [SMPS Buck/Boost Dönüştürücü Tasarımı](#20-smps-buckboost-dönüştürücü-tasarımı)
 21. [RF Mikroşerit Hat Empedansı & 50Ω Sentezi](#21-rf-mikroşerit-hat-microstrip-empedansı--50ω-sentezi)
 22. [DC Motor & H-Bridge PWM Sürüş Simülasyonu](#22-dc-motor--h-bridge-pwm-sürüş-simülasyonu)
-23. [İnteraktif Eğri Takibi (Snapping) & HUD](#23-i̇nteraktif-eğri-takibi-snapping-hud-tooltip--dokunsal-simülasyon)
-24. [Diyot & Zener Karakteristik Laboratuvarı](#24-diyot--zener-karakteristik-laboratuvarı)
-25. [DSP Z-Düzlemi Kutup-Sıfır Analizörü](#25-dsp-z-düzlemi-kutup-sıfır-analizörü)
-26. [Güneş Paneli (PV) & MPPT Tepe Güç Takip Simülatörü](#26-güneş-paneli-pv--mppt-tepe-güç-takip-simülatörü)
-27. [Seri Protokol Analizörü & Yeni Nesil Hesaplayıcılar](#27-seri-protokol-analizörü--yeni-nesil-hesaplayıcılar)
+23. [İnteraktif Eğri Takibi (Snapping) & HUD](#23-interaktif-eğri-takibi-snapping-hud-tooltip--dokunsal-simülasyon)
+24. [Mobil Uyumluluk & Android Uygulaması (Tam Ekran APK)](#24-mobil-uyumluluk--android-uygulaması-tam-ekran-apk)
 
 ---
 
 ## 1. Ana Arayüz & Genel Bakış
 
-Platform açıldığında kullanıcıyı **100vh Çift Portal Giriş Kapısı** karşılar. Burada "Devrem Akademi & Lab" veya "Devrem Kariyer & Topluluk" alanlarından birine tek tıkla doğrudan geçiş yapılır:
-
-![Devrem 2.0 Portal Seçim Kapısı](images/overview/portal_secim_kapisi.png)
-
-Çalışma istasyonu ayrıca modern **2026 Obsidian Gece Teması** ve **Göz Dostu Mat Seramik Gündüz Teması** seçenekleri, `Ctrl + K` hızlı arama çubuğu ve procedurally-generated (algoritmik çizilen) interaktif PCB arka planı ile donatılmıştır:
+Platform açıldığında sizi karşılayan ana çalışma istasyonu; modern **2026 Obsidian Gece Teması** ve **Pastel Gündüz Teması** seçenekleri, `Ctrl + K` hızlı arama çubuğu ve procedurally-generated (algoritmik çizilen) interaktif PCB arka planı ile donatılmıştır.
 
 ![Devrem Studio Ana Arayüz](images/overview/devrem_studio_hero.png)
 
-* **Spotlight Arama (`Ctrl + K`):** Saniyeler içinde 38+ laboratuvar aracına, sınav sorularına veya formüllere doğrudan odaklanmanızı sağlar.
+* **Spotlight Arama (`Ctrl + K`):** Saniyeler içinde 27 laboratuvar aracına, sınav sorularına veya formüllere doğrudan odaklanmanızı sağlar.
 * **Akıllı Yarıyıl & Track Filtresi:** 8 yarıyıl arasında geçiş ve Güç, RF, Kontrol, Gömülü Sistemler ve Çekirdek Mühendislik uzmanlaşma filtreleri.
 
 ---
@@ -332,39 +328,33 @@ Doğrusal ve zamanla değişmeyen (LTI) sistemlerin çekirdek prensipleri:
 
 ---
 
-## 24. Diyot & Zener Karakteristik Laboratuvarı
+## 24. Mobil Uyumluluk & Android Uygulaması (Tam Ekran APK)
 
-![Diyot ve Zener Karakteristik Laboratuvarı](images/simulators/diyot_zener_koyu.png)
+Devrem Studio, sadece masaüstü bilgisayarlarda değil; akıllı telefonlarda, tabletlerde ve bağımsız **Android APK** uygulaması olarak da sıfır ödünle en üst düzey mühendislik deneyimini sunacak şekilde tamamen responsive (mobil uyumlu) hale getirilmiştir.
 
-* **Shockley & Kırılma:** İleri yön iletim eşiği ($V_\gamma \approx 0.7\text{ V}$ Si, $0.3\text{ V}$ Ge) ve ters yön Zener kırılma gerilimi ($V_z$) canlı I-V ekseninde çizilir.
-* **Sıcaklık Analizi:** Sıcaklık değişimiyle ters doyma akımındaki eksponansiyel artış ve dinamik direnç $r_d$ değerleri canlı izlenir.
+| Mobil Ana Sayfa & Hero | Mobil Laboratuvar & Kategori Çipleri |
+| :---: | :---: |
+| ![Mobil Ana Sayfa](images/mobile/mobile_01_home_hero.png) | ![Mobil Laboratuvar](images/mobile/mobile_03_laboratuvar_hub.png) |
 
----
+| Dokunmatik Kaydırılabilir Bode Plot | Mobil Smith Chart RF Analizörü |
+| :---: | :---: |
+| ![Mobil Bode Filtresi](images/mobile/mobile_04_bode_filtre_simulasyonu.png) | ![Mobil Smith Chart](images/mobile/mobile_05_smith_chart_simulasyonu.png) |
 
-## 25. DSP Z-Düzlemi Kutup-Sıfır Analizörü
+| Mobil Akademi & Müfredat | Mobil Kariyer & İlan Portalı |
+| :---: | :---: |
+| ![Mobil Akademi](images/mobile/mobile_02_akademi_hub.png) | ![Mobil Kariyer](images/mobile/mobile_06_kariyer_portal.png) |
 
-![DSP Z-Düzlemi Kutup-Sıfır Analizörü](images/simulators/dsp_zplane_koyu.png)
-
-* **Birim Çember Kararlılık:** Kutup ve sıfırların konumu karmaşık $z$-düzleminde fareyle serbestçe sürüklenir; kutup birim çember $|z|=1$ dışına çıktığında sistem kararsız (unstable) olarak işaretlenir.
-* **Frekans Genlik & Faz Tepkisi:** Ayrık zamanlı sistemin frekans cevabı $|H(e^{j\omega})|$ eşzamanlı olarak hesaplanır ve çizilir.
-
----
-
-## 26. Güneş Paneli (PV) & MPPT Tepe Güç Takip Simülatörü
-
-![Güneş Paneli PV MPPT Güç Takip Simülatörü](images/simulators/solar_mppt_koyu.png)
-
-* **Tek Diyotlu Fotovoltaik Model:** Güneş ışınımı (W/m²) ve panel sıcaklığı (°C) değiştirilerek I-V ve P-V eğrileri simüle edilir.
-* **P&O Algoritması:** Perturb & Observe MPPT kontrolcüsü tepe güç noktasını ($P_{max}, V_{mpp}, I_{mpp}$) adım adım yakalar.
-
----
-
-## 27. Seri Protokol Analizörü & Yeni Nesil Hesaplayıcılar
-
-![Seri Protokol Analizörü](images/simulators/protokol_analizor_koyu.png)
-
-* **Seri Protokoller:** UART, I2C, SPI ve CAN bus için zamanlama diyagramı, start/stop/ack bitleri ve veri çözümlemesi yapılır.
-* **Pil Deşarjı (Peukert):** Çekilen akıma bağlı olarak deşarj süresi ve net Wh kapasite kaybı hesaplanır.
-* **Termal Soğutucu:** Yarı iletken jonksiyon ısısını güvenli sınırda tutacak soğutucu ısıl direnci $\theta_{sa}$ ve montaj parametreleri çıkarılır.
-
+### 📱 Başlıca Mobil & APK Özellikleri:
+1. **Sıfır Yatay Taşma & Akıcı Tipografi:**
+   * `clamp()` akıcı yazı boyutlandırması ile 1920x1080 ekranlardaki geniş metinler telefonlarda bölünmez, kırpılmaz ve tek satırda kusursuz okunur.
+   * Form alanlarında ve arama kutularında iOS ve Android'in otomatik sayfayı yakınlaştırmasını (zoom-in) önleyen 16px minimum giriş tabanı uygulanmıştır.
+2. **Dokunmatik Kaydırılabilir Simülatör Kanvasları (`.chart-pan-wrap`):**
+   * 44 mühendislik simülatörü ve osiloskop kanvası telefon ekranına sıkışıp pikselleşmek yerine, 640px tasarım genişliğini koruyarak yatay kaydırılabilir dokunmatik konteyner içerisine alınmıştır.
+   * Sağ kenardaki yumuşak gradyan göstergesi sayesinde kullanıcı parmağıyla dalga formlarını sağa-sola rahatça kaydırabilir.
+3. **Tam Ekran (Edge-to-Edge) & Otomatik Yatay Sensör Modu:**
+   * Android WebView katmanı `MainActivity.java` içerisinde Edge-to-Edge olarak yapılandırılmıştır.
+   * Laboratuvar araçlarındaki **"Tam Ekran"** butonuna dokunulduğunda telefon otomatik olarak yatay (Landscape) moda geçer ve durum çubuğu/alt çubuklar gizlenerek osiloskop tüm telefon ekranını kaplar.
+4. **%100 Çevrimdışı (Offline) APK Paketi:**
+   * Tüm formül kütüphaneleri (KaTeX), grafik motorları, ses sentezleyicileri ve ders müfredatı APK içerisine paketlenmiştir. İnternet bağlantısı gerekmeksizin metroda, şantiyede veya laboratuvarda tam performansla çalışır.
+   * **Doğrudan İndirme:** Projenin kök dizinindeki [Devrem.apk](../Devrem.apk) veya [Devrem-v2.5.0.apk](../Devrem-v2.5.0.apk) dosyasıyla doğrudan kurulum yapılabilir.
 

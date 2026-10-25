@@ -22,7 +22,8 @@
   <br><br>
   <p><strong>Devrem Studio v4.0:</strong> 100vh Çift Portallı Giriş Kapısı (Akademi &amp; Kariyer Hub), 8 Yarıyıl / 240 AKTS Bologna Lisans Müfredatı, 38+ İnteraktif Mühendislik Simülatörü &amp; Aracı, Göz Dostu Mat Seramik/Slate Gündüz Modu, PWA v9 Tam Çevrimdışı Çalışma ve Donanım Hızlandırmalı Kanvas Simülatörleri</p>
   <p>
-    <a href="docs/OGRETICI_REHBER.md"><strong>📖 ➔ Resimli Görsel Öğretici & Adım Adım Modül Kullanım Rehberi İçin Tıklayın</strong></a>
+    <a href="docs/OGRETICI_REHBER.md"><strong>📖 ➔ Resimli Görsel Öğretici & Adım Adım Modül Kullanım Rehberi İçin Tıklayın</strong></a><br>
+    <a href="Devrem_Ogretici_Rehber.pdf"><strong>📥 [PDF İndir] Resimli Öğretici Rehber Kitapçığı (15.5 MB A4 Baskı Uyumlu PDF)</strong></a>
   </p>
 </div>
 
@@ -35,6 +36,23 @@
     <h4 align="center">💼 2. PORTAL: DEVREM KARİYER & TOPLULUK</h4>
     <img src="docs/images/overview/portal_kariyer_hero.png" alt="Devrem Kariyer Portalı & Canlı İlanlar" width="440" style="border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
   </div>
+</div>
+
+---
+
+### 📱 Devrem Android Mobil Uygulaması & Tam Ekran Deneyimi
+
+> **Doğrudan İndir:** [📥 Devrem.apk (v2.5.0)](Devrem.apk) | [📥 Devrem-v2.5.0.apk](Devrem-v2.5.0.apk) | [📖 Resimli PDF Rehberi](Devrem_Ogretici_Rehber.pdf)
+> 
+> * **Tam Ekran (Edge-to-Edge & Immersive Mod):** Android 15/16 sistem çubuklarıyla uyumlu, simülatörlerde tam ekran moduna tıklandığında otomatik yatay sensöre dönen ve durum çubuklarını gizleyen sürükleyici tam ekran deneyimi.
+> * **%100 Mobil Uyumlu:** Akıcı `clamp()` tipografi, taşmayan 44 mühendislik simülatörü, yatay kaydırılabilir dokunmatik grafik panelleri (`touch-pan`), 44px dokunma hedefleri ve sıfır yatay taşma.
+> * **Sıfır İnternet Bağımlılığı:** Tüm varlıklar ve simülasyon motorları APK içerisine paketlenmiştir, internetiniz olmasa dahi dağ başında veya metroda kesintisiz çalışır.
+
+<div align="center" style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:14px 0;">
+  <img src="docs/images/mobile/mobile_01_home_hero.png" alt="Devrem Mobil Ana Sayfa" width="220" style="border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.45);">
+  <img src="docs/images/mobile/mobile_03_laboratuvar_hub.png" alt="Devrem Mobil Laboratuvar" width="220" style="border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.45);">
+  <img src="docs/images/mobile/mobile_04_bode_filtre_simulasyonu.png" alt="Devrem Mobil Bode Filtre Simülatörü" width="220" style="border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.45);">
+  <img src="docs/images/mobile/mobile_06_kariyer_portal.png" alt="Devrem Mobil Kariyer Portalı" width="220" style="border-radius: 14px; box-shadow: 0 8px 24px rgba(0,0,0,0.45);">
 </div>
 
 ---
