@@ -395,7 +395,7 @@ Devrem Studio, ağır kütüphane bağımlılıklarını reddeden saf web mühen
 │  Mobil Performans Motoru       │  IntersectionObserver API (0-Reflow)  │
 │                                │  requestAnimationFrame 60 FPS Throttle│
 ├────────────────────────────────┼───────────────────────────────────────┤
-│  PWA & Çevrimdışı Çalışma     │  Service Worker v9 Offline Caching    │
+│  PWA & Çevrimdışı Çalışma      │  Service Worker v9 Offline Caching    │
 │                                │  38+ Simülatör Dosyası Yerel Bellekte │
 ├────────────────────────────────┼───────────────────────────────────────┤
 │  Ses & Frekans Simülasyonu     │  Web Audio API (Hardware Synthesis)   │
