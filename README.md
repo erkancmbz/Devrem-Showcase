@@ -363,6 +363,18 @@ Gömülü sistemler için endüstri standardı seri haberleşme protokollerini g
 ---
 
 
+### 🧠 3.24 Yapay Sinir Ağları (YSA) Soru Çözüm & Eğitim Laboratuvarı (P0)
+Çok katmanlı yapay sinir ağlarının (MLP) ileri yayılım, hata hesabı, iterasyonlu öğrenme ve geri yayılım (Backpropagation) adımlarını sınav/ders notu formatında adım adım çözen ve Retina HiDPI kanvas üzerinde canlı sinyal akışıyla görselleştiren interaktif eğitim laboratuvarı:
+$$I_{ij} = \sum w_k x_k + b \cdot w_b, \quad \text{Tansig}(u) = \frac{e^u - e^{-u}}{e^u + e^{-u}}, \quad \text{SSE} = \frac{1}{2}(y - \bar{y})^2$$
+* **5 Kapsamlı Eğitim & Çözüm Modülü:**
+  1. **Çok Katmanlı Tansig & SSE Hatası:** Gizli katman net girişleri ($I_{ij}$), aktivasyon çıkışları ($Out_{ij}$), bias ($b=-1$) katkıları ve hedef çıkışa göre karesel hata ($\text{SSE}$) hesabı.
+  2. **Poslin (ReLU) & Purelin 4-Katmanlı Ağ Analizi:** Negatif net girişlerin $\text{Poslin}(u) = \max(0, u)$ ile sıfırlanması (budanması) ve çıkış katmanı karşılaştırması.
+  3. **İterasyon İterasyon Tek Katmanlı YSA & Delta Öğrenme Kuralı:** 2., 3. ve 4. iterasyonlar boyunca $w_{\text{yeni}} = w_{\text{eski}} + \eta \cdot \varepsilon \cdot x^j$ ağırlık güncellemelerinin adım adım takibi.
+  4. **Geri Yayılım (Backpropagation) & Zincir Kuralı:** Çıkış yerel gradyanı ($\delta_{\text{çıkış}} = (y - \bar{y}) f'(I)$) ve gizli katman gradyanları ($\delta_{\text{gizli}}$) üzerinden ağırlık güncellemesi ve SSE hatasındaki düşüşün ispatı.
+  5. **Serbest YSA Tasarımcısı (`+Katman Ekle`):** Kullanıcının kendi sınav sorusunu oluşturabilmesi için dinamik katman ekleme/silme (1–6 katman), nöron sayısı ve aktivasyon fonksiyonu (Tansig, Poslin, Purelin, Sigmoid) özelleştirme motoru.
+
+---
+
 ## 📟 4. İnteraktif Mikrodenetleyici Pinout Görüntüleyici
 
 Gömülü sistem geliştiricileri için canlı SVG tabanlı mikrodenetleyici pinout şemaları:

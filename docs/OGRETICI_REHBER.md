@@ -358,3 +358,12 @@ Devrem Studio, sadece masaüstü bilgisayarlarda değil; akıllı telefonlarda, 
    * Tüm formül kütüphaneleri (KaTeX), grafik motorları, ses sentezleyicileri ve ders müfredatı APK içerisine paketlenmiştir. İnternet bağlantısı gerekmeksizin metroda, şantiyede veya laboratuvarda tam performansla çalışır.
    * **Doğrudan İndirme:** Projenin kök dizinindeki [Devrem.apk](../Devrem.apk) veya [Devrem-v2.5.0.apk](../Devrem-v2.5.0.apk) dosyasıyla doğrudan kurulum yapılabilir.
 
+---
+
+## 25. Yapay Sinir Ağları (YSA) Soru Çözüm & Eğitim Laboratuvarı
+* **Çok Katmanlı Tansig & SSE Hatası:** Gizli katman net girişleri ($I_{ij}$), hiperbolik tanjant ($\text{Tansig}$) çıkışları ($Out_{ij}$), bias ($b=-1$) katkıları ve hedef çıkışa göre karesel hata ($\text{SSE} = \frac{1}{2}(y-\bar{y})^2$) hesabını sınav kağıdı düzeninde adım adım gösterir.
+* **Poslin (ReLU) & Purelin 4-Katmanlı Ağ Analizi:** Negatif net girişlerin $\text{Poslin}(u) = \max(0, u)$ ile sıfırlanmasını ve çıkış katmanı aktivasyon karşılaştırmasını canlı şema üzerinde sunar.
+* **İterasyon İterasyon Delta Öğrenme:** 2., 3. ve 4. iterasyonlarda $w_{\text{yeni}} = w_{\text{eski}} + \eta \cdot \varepsilon \cdot x^j$ formülüyle ağırlık güncellemelerini takip eder.
+* **Geri Yayılım (Backpropagation):** Çıkış ve gizli katman yerel gradyanları ($\delta_{\text{çıkış}}, \delta_{\text{gizli}}$) üzerinden zincir kuralıyla ağırlıkları günceller ve yeni ileri yayılımda SSE hatasının düştüğünü ispatlar.
+* **Serbest YSA Tasarımcısı (`+Katman Ekle`):** Kullanıcıya kendi sınav sorusunu kurabilmesi için 1–6 katman arası dinamik katman ekleme, nöron sayısı (1–5) ve aktivasyon fonksiyonu seçme imkanı tanır.
+
